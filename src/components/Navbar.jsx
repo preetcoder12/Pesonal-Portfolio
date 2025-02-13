@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       <div className="h-screen">
-        <div className="bg-white mt-2 pb-2 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col md:flex-row items-center justify-between p-4 md:px-12 transition-all shadow-md">
+        <div className="bg-white  pb-2 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col md:flex-row items-center justify-between p-4 md:px-12 transition-all shadow-md">
 
           {/* Logo / Name */}
           <h1 className="font-bold text-4xl">Preet Gusain</h1>
