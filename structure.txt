@@ -27,7 +27,6 @@ personal-portfolio/
 │── README.md
 
 
-
    <div>
       <Navbar />
       <Hero />

@@ -1,28 +1,22 @@
-.head_nav_font {
-    font-family: 'Poppins', sans-serif;
-    /* Modern & clean font */
-
-}
-
-
 /* Light Mode (default) */
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: white;
     color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark Mode */
 .dark body {
-    background-color: #1E1E1E ;
-    color: #EAEAEA ;
+    background-color: #1E1E1E;
+    color: #EAEAEA;
 }
 
-body {
+/* Ensure hero section inherits dark mode */
+.hero-section {
+    background-color: white;
+}
 
-    font-family: 'Poppins' ;
-    /* Default body font */
-    color: #333;
-    /* Deep gray for readability */
-    background-color: #F8F9FA;
-    /* Light background */
+.dark .hero-section {
+    background-color: #1E1E1E;
 }
