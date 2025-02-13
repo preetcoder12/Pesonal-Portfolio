@@ -1,0 +1,28 @@
+.head_nav_font {
+    font-family: 'Poppins', sans-serif;
+    /* Modern & clean font */
+
+}
+
+
+/* Light Mode (default) */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Mode */
+.dark body {
+    background-color: #1E1E1E ;
+    color: #EAEAEA ;
+}
+
+body {
+
+    font-family: 'Poppins' ;
+    /* Default body font */
+    color: #333;
+    /* Deep gray for readability */
+    background-color: #F8F9FA;
+    /* Light background */
+}

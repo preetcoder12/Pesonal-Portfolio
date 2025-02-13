@@ -1,0 +1,41 @@
+personal-portfolio/
+│── public/              
+│   ├── assets/          # Images, logos, and static files
+│   ├── index.html       # Main HTML template
+│── src/
+│   ├── components/      # Reusable components (Navbar, Footer, etc.)
+│   │   ├── Navbar.js
+│   │   ├── Hero.js
+│   │   ├── About.js
+│   │   ├── Projects.js
+│   │   ├── Skills.js
+│   │   ├── Contact.js
+│   │   ├── Footer.js
+│   │   ├── Button.js
+│   ├── pages/           # Page-level components (if using React Router)
+│   │   ├── Home.js
+│   │   ├── About.js
+│   │   ├── Projects.js
+│   │   ├── Contact.js
+│   ├── styles/          # CSS or Tailwind styles
+│   │   ├── global.css
+│   │   ├── animations.css
+│   ├── App.js           # Main React component
+│   ├── index.js         # Renders App component
+│   ├── data.js          # JSON or JS file for project/skills data
+│── package.json
+│── README.md
+
+
+
+   <div>
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+      <Footer />
+    </div>
+
+
