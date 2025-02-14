@@ -69,8 +69,8 @@ const Hero = () => {
             <a href="https://www.linkedin.com/in/preet-gusain-986b022a5/" target="_blank">
               <img src="linkedinlogo.png" className="w-10 md:w-12" alt="LinkedIn" />
             </a>
-            <a href="https://github.com/preetcoder12" target="_blank">
-              <img src="instalogo.png" className="w-10 md:w-12" alt="GitHub" />
+            <a href="https://www.instagram.com/preet_gusain200_?utm_source=qr&igsh=MXhmenR4ZXgwc2xvbA==" target="_blank">
+              <img src="instalogo.png" className="w-10 md:w-12" alt="Insta" />
             </a>
             <a href="https://github.com/preetcoder12" target="_blank">
               <img src="githublogo.png" className="w-10 md:w-12" alt="GitHub" />

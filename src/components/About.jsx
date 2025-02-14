@@ -2,8 +2,8 @@ const About = () => {
     return (
         <div className="mx-[4rem] flex justify-center items-center py-24">
             <div className="w-full max-w-5xl text-center">
-                <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-                    About Me
+                <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6 orbitron">
+                About<span className="text-blue-500">Me</span>
                 </h2>
                 <hr className="w-40 border-t-4 border-blue-500 mx-auto mb-12" />
 
