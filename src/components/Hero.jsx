@@ -21,7 +21,7 @@ const Counter = ({ target }) => {
     updateCounter();
   }, [target]);
 
-  return <div className="text-3xl md:text-4xl font-bold text-blue-500 counting">{count}</div>;
+  return <div className="text-3xl md:text-4xl font-bold text-blue-400 counting">{count}</div>;
 };
 
 const Hero = () => {
@@ -31,13 +31,13 @@ const Hero = () => {
 
         {/* Left Section */}
         <div className="flex flex-col justify-center text-center md:text-left max-w-lg">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-black dark:text-white">
-            Hi, I'm <span className="text-blue-500 dark:text-blue-400">Preet!</span> 👋
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white">
+            Hi, I'm <span className="text-blue-400">Preet!</span> 👋
           </h1>
 
-          <h2 className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 mt-4">
+          <h2 className="text-xl md:text-3xl text-gray-300 mt-4">
             I am{" "}
-            <span className="font-semibold transition-colors duration-300 text-gray-800 dark:text-gray-400">
+            <span className="font-semibold text-gray-400">
               <Typewriter
                 words={[
                   "a MERN Stack Developer",
@@ -54,7 +54,7 @@ const Hero = () => {
             </span>
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-400 mt-5 text-lg">
+          <p className="text-gray-400 mt-5 text-lg">
             Passionate about building scalable web applications & solving complex problems.
           </p>
 
@@ -62,7 +62,7 @@ const Hero = () => {
             <a
               href="/preet_cv.pdf"
               download="Preet_CV.pdf"
-              className="px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white font-semibold rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
+              className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
             >
               📄 Download CV
             </a>
@@ -81,7 +81,7 @@ const Hero = () => {
         {/* Right Section */}
         <div className="flex justify-center relative image-container">
           <div className="absolute w-64 h-64 md:w-[32rem] md:h-[32rem] rounded-full 
-                border-4 border-dotted border-gray-800 dark:border-gray-600
+                border-4 border-dotted border-gray-600
                 rotating-border"></div>
 
           <img
@@ -97,22 +97,22 @@ const Hero = () => {
       <div className="flex flex-wrap md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8 px-4">
         <div className="text-center flex gap-2 items-center">
           <Counter target={15} />
-          <p className="text-lg md:text-3xl text-gray-700 dark:text-gray-300 ">Projects</p>
+          <p className="text-lg md:text-3xl text-gray-300">Projects</p>
         </div>
-        <span className="text-2xl md:text-4xl text-gray-500 dark:text-gray-400">|</span>
+        <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
           <Counter target={115} />
-          <p className="text-lg md:text-3xl text-gray-700 dark:text-gray-300">Contributions</p>
+          <p className="text-lg md:text-3xl text-gray-300">Contributions</p>
         </div>
-        <span className="text-2xl md:text-4xl text-gray-500 dark:text-gray-400">|</span>
+        <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
           <Counter target={98} />
-          <p className="text-lg md:text-3xl text-gray-700 dark:text-gray-300">Commits</p>
+          <p className="text-lg md:text-3xl text-gray-300">Commits</p>
         </div>
-        <span className="text-2xl md:text-4xl text-gray-500 dark:text-gray-400">|</span>
+        <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
           <Counter target={16} />
-          <p className="text-lg md:text-3xl text-gray-700 dark:text-gray-300">Tech Stacks</p>
+          <p className="text-lg md:text-3xl text-gray-300">Tech Stacks</p>
         </div>
       </div>
     </div>
