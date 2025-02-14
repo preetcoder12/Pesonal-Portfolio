@@ -2,7 +2,7 @@ import { InView } from 'react-intersection-observer';
 
 const Skills = () => {
     const languages = [
-        { id: "1", img: "html.png", title: "HTML 5" },
+        { id: "1", img: "tailwind.png", title: "TailWind" },
         { id: "2", img: "css.png", title: "CSS" },
         { id: "3", img: "js.png", title: "JavaScript" },
         { id: "4", img: "cpp.png", title: "C++" },
