@@ -67,13 +67,13 @@ const Hero = () => {
               📄 Download CV
             </a>
             <a href="https://www.linkedin.com/in/preet-gusain-986b022a5/" target="_blank">
-              <img src="src/public/linkedinlogo.png" className="w-10 md:w-12" alt="LinkedIn" />
+              <img src="public/linkedinlogo.png" className="w-10 md:w-12" alt="LinkedIn" />
             </a>
             <a href="https://github.com/preetcoder12" target="_blank">
-              <img src="src/public/instalogo.png" className="w-10 md:w-12" alt="GitHub" />
+              <img src="public/instalogo.png" className="w-10 md:w-12" alt="GitHub" />
             </a>
             <a href="https://github.com/preetcoder12" target="_blank">
-              <img src="src/public/githublogo.png" className="w-10 md:w-12" alt="GitHub" />
+              <img src="public/githublogo.png" className="w-10 md:w-12" alt="GitHub" />
             </a>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Hero = () => {
                 rotating-border"></div>
 
           <img
-            src="/src/public/preet_2.png"
+            src="public/preet_2.png"
             alt="preet"
             className="max-h-64 md:max-h-[28rem] w-auto rounded-full shadow-2xl p-2 
                border-4 border-transparent object-cover relative profile-image"
