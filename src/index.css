@@ -1,7 +1,7 @@
 /* Light Mode (default) */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: white;
+    background-color: rgb(69, 58, 58);
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -14,7 +14,7 @@ body {
 
 /* Ensure hero section inherits dark mode */
 .hero-section {
-    background-color: white;
+    background-color: rgb(84, 84, 84);
 }
 
 .dark .hero-section {
@@ -28,7 +28,7 @@ body {
     height: 105%;
     border: 6px dashed rgb(0, 187, 255);
     border-radius: 50%;
-    animation: spin 10s linear infinite;
+    animation: spin 80s linear infinite;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -110,4 +110,9 @@ body {
     100% {
         box-shadow: 13px 20px 40px rgba(13, 224, 231, 0.682);
     }
+}
+
+.counting{
+    font-family: 'Orbitron';
+
 }

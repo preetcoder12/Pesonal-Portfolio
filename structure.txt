@@ -31,8 +31,9 @@ personal-portfolio/
       <Navbar />
       <Hero />
       <About />
-      <Projects />
-      <Skills />
+      <Projects />with skills
+      <certifications/>
+      <testimonial/>
       <Contact />
       <Footer />
     </div>
