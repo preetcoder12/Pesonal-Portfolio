@@ -20,3 +20,94 @@ body {
 .dark .hero-section {
     background-color: #1E1E1E;
 }
+
+/* Rotating Border */
+.rotating-border {
+    position: absolute;
+    width: 105%;
+    height: 105%;
+    border: 6px dashed rgb(0, 187, 255);
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect: Scale up while keeping rotation */
+.rotating-border:hover {
+    transform: scale(1.1) rotate(360deg);
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+
+}
+
+.image-container:hover {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    transform: scale(1.02);
+    transition: all ease-in-out 0.5s;
+
+}
+
+/* Profile Image (Still) */
+.profile-image {
+    position: relative;
+    max-height: 28rem;
+    width: auto;
+    border-radius: 14rem;
+    box-shadow: 0 10px 40px rgb(18, 227, 193);
+    border: 4px solid transparent;
+    object-fit: cover;
+}
+
+.profile-image {
+    position: relative;
+    max-height: 28rem;
+    width: auto;
+    border-radius: 14rem;
+    animation: boxshadowChange 2s ease-in-out infinite alternate;
+    border: 4px solid transparent;
+    object-fit: cover;
+    transition: all ease-in-out 0.7s;
+
+}
+
+/* Fading Effect using ::after */
+.image-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14rem;
+    pointer-events: none;
+    /* Allows interaction with the image */
+}
+
+/* Rotation Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes boxshadowChange {
+    0% {
+        box-shadow: 13px 14px 30px rgba(13, 224, 231, 0.414);
+    }
+    100% {
+        box-shadow: 13px 20px 40px rgba(13, 224, 231, 0.682);
+    }
+}
