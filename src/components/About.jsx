@@ -12,7 +12,7 @@ const About = () => {
                     <div className="bg-white/10 backdrop-blur-md border border-gray-300 dark:border-gray-600 shadow-xl rounded-lg p-8 transition-transform transform hover:scale-110">
                         <div className="flex justify-between items-center border-b pb-4 border-gray-300 dark:border-gray-600">
                             <h1 className="text-4xl font-extrabold text-blue-500 tracking-wide">01</h1>
-                            <img src="src/public/arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
+                            <img src="arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
                         </div>
                         <h1 className="text-3xl font-bold mt-6 text-gray-900 dark:text-white">Full Stack Developer</h1>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
@@ -26,7 +26,7 @@ const About = () => {
                     <div className="bg-white/10 backdrop-blur-md border border-gray-300 dark:border-gray-600 shadow-xl rounded-lg p-8 transition-transform transform hover:scale-110">
                         <div className="flex justify-between items-center border-b pb-4 border-gray-300 dark:border-gray-600">
                             <h1 className="text-4xl font-extrabold text-blue-500 tracking-wide">02</h1>
-                            <img src="src/public/arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
+                            <img src="arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
                         </div>
                         <h1 className="text-3xl font-bold mt-6 text-gray-900 dark:text-white">Problem Solver</h1>
                         <p className="text-lg text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">
@@ -41,7 +41,7 @@ const About = () => {
                     <div className="bg-white/10 backdrop-blur-md border border-gray-300 dark:border-gray-600 shadow-xl rounded-lg p-8 transition-transform transform hover:scale-110">
                         <div className="flex justify-between items-center border-b pb-4 border-gray-300 dark:border-gray-600">
                             <h1 className="text-4xl font-extrabold text-blue-500 tracking-wide">03</h1>
-                            <img src="src/public/arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
+                            <img src="arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
                         </div>
                         <h1 className="text-3xl font-bold mt-6 text-gray-900 dark:text-white">Mindset & Skills</h1>
                         <p className="text-lg text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">
@@ -55,7 +55,7 @@ const About = () => {
                     <div className="bg-white/10 backdrop-blur-md border border-gray-300 dark:border-gray-600 shadow-xl rounded-lg p-8 transition-transform transform hover:scale-110">
                         <div className="flex justify-between items-center border-b pb-4 border-gray-300 dark:border-gray-600">
                             <h1 className="text-4xl font-extrabold text-blue-500 tracking-wide">04</h1>
-                            <img src="src/public/arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
+                            <img src="arrow.jpg" className="w-12 transition-transform transform hover:translate-x-2" alt="Arrow" />
                         </div>
                         <h1 className="text-3xl font-bold mt-6 text-gray-900 dark:text-white">Featured Projects</h1>
                         <p className="text-lg text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">

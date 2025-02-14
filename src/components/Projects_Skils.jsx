@@ -5,7 +5,7 @@
             {
                 id: 1,
                 name: "Netflix Clone",
-                image: "public/netflixpro.png",
+                image: "netflixpro.png",
                 description: "A full-stack streaming platform with user authentication, payment gateway, and a sleek UI inspired by Netflix.",
                 skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
                 link: "https://github.com/preetcoder12/Netflix-Clone"
@@ -13,7 +13,7 @@
             {
                 id: 2,
                 name: "Blog-Sphere",
-                image: "public/blogpro.png",
+                image: "blogpro.png",
                 description: "A blogging platform where users can write, edit, and share articles with a built-in commenting system.",
                 skills: [FaReact, FaNodeJs, FaDatabase],
                 link: "https://github.com/preetcoder12/Blog-Sphere"
@@ -21,7 +21,7 @@
             {
                 id: 3,
                 name: "Chat Application",
-                image: "public/chatpro.png",
+                image: "chatpro.png",
                 description: "A real-time chat app with user authentication and WebSocket integration for instant messaging.",
                 skills: [FaHtml5, FaJs, FaServer, FaCss3Alt],
                 link: "https://github.com/preetcoder12/Chat_application-login-"
@@ -29,7 +29,7 @@
             {
                 id: 4,
                 name: "RazorPay Clone",
-                image: "public/razorpaypro.png",
+                image: "razorpaypro.png",
                 description: "A payment gateway clone replicating RazorPay's UI and basic transaction handling for practice.",
                 skills: [FaHtml5, FaJs, FaCss3Alt],
                 link: "https://github.com/preetcoder12/RazorPay-clone"
@@ -37,7 +37,7 @@
             {
                 id: 5,
                 name: "URL Shortener",
-                image: "public/urlshortpro.png",
+                image: "urlshortpro.png",
                 description: "A URL shortening service that allows users to generate short links and track click analytics.",
                 skills: [FaHtml5, FaJs, FaServer, FaCss3Alt],
                 link: "https://github.com/preetcoder12/Url_Shortner"
@@ -45,7 +45,7 @@
             {
                 id: 6,
                 name: "LeetCode-Metrics",
-                image: "public/leetcodepro.png",
+                image: "leetcodepro.png",
                 description: "A dashboard to track LeetCode problem-solving progress, including streaks and topic-wise stats.",
                 skills: [FaHtml5, FaJs, FaCss3Alt],
                 link: "https://github.com/preetcoder12/LeetCode-metric"
