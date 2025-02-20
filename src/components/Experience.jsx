@@ -48,7 +48,34 @@ const Experience = () => {
             date: "Feb 2025",
             logo: "microsoft.png",
             desc: "Developed expertise in data analysis, visualization, SQL, and Python, earning certification from Microsoft & LinkedIn Learning."
-        }
+        },
+        {
+            id: "3",
+            title: "DSA with Oops in C++",
+            image: "DSA.jpeg",
+            issued_by: "Udemy",
+            date: "Oct 2024",
+            logo: "Udemy-Logo.png",
+            desc: " Mastered Data Structures, Algorithms, and Object-Oriented Programming in C++ with hands-on projects and quizzes."
+        },
+        {
+            id: "4",
+            title: "Machine Learning",
+            image: "ML.jpeg",
+            issued_by: "Udemy",
+            date: "Nov 2024",
+            logo: "Udemy-Logo.png",
+            desc: "Learned Machine Learning, Data Preprocessing, Regression, Classification, Clustering, and Natural Language Processing with Python."
+        },
+        {
+            id: "5",
+            title: "SQL BootCamp",
+            image: "SQL.jpeg",
+            issued_by: "Udemy",
+            date: "Feb 2025",
+            logo: "Udemy-Logo.png",
+            desc: "Mastered SQL, Database Management, and Querying with MySQL, and SQLite from scratch. "
+        },
     ];
 
     return (

@@ -30,10 +30,10 @@ const Projects_Skills = () => {
         },
         {
             id: 4,
-            name: "RazorPay Clone",
-            image: "razorpaypro.png",
-            description: "A payment gateway clone replicating RazorPay's UI and basic transaction handling for practice.",
-            skills: [FaHtml5, FaJs, FaCss3Alt],
+            name: "AI Imagen",
+            image: "text_2_img.png",
+            description: "AI Imagen is an API-powered tool that generates images from text descriptions using AI.",
+            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
             link: "https://github.com/preetcoder12/RazorPay-clone"
         },
         {

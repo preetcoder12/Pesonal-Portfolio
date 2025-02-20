@@ -75,6 +75,9 @@ const Hero = () => {
             <a href="https://github.com/preetcoder12" target="_blank">
               <img src="githublogo.png" className="w-10 md:w-12" alt="GitHub" />
             </a>
+            <a href="https://www.youtube.com/@preetgusain" target="_blank">
+              <img src="ytlogo.png" className="w-10 md:w-14" alt="Youtube" />
+            </a>
           </div>
         </div>
 
@@ -101,17 +104,17 @@ const Hero = () => {
         </div>
         <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
-          <Counter target={115} />
-          <p className="text-lg md:text-3xl text-gray-300">Contributions</p>
+          <Counter target={70} />
+          <p className="text-lg md:text-3xl text-gray-300"><span className="text-3xl md:text-4xl font-bold text-blue-400">+ </span>Dsa Problems</p>
         </div>
         <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
-          <Counter target={98} />
-          <p className="text-lg md:text-3xl text-gray-300">Commits</p>
+          <Counter target={155} />
+          <p className="text-lg md:text-3xl text-gray-300"><span className="text-3xl md:text-4xl font-bold text-blue-400 ml-0 mr-1">+ </span>Commits</p>
         </div>
         <span className="text-2xl md:text-4xl text-gray-500">|</span>
         <div className="text-center flex gap-2 items-center">
-          <Counter target={16} />
+          <Counter target={15} />
           <p className="text-lg md:text-3xl text-gray-300">Tech Stacks</p>
         </div>
       </div>
