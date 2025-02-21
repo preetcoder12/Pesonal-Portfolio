@@ -10,7 +10,7 @@ const Projects_Skills = () => {
             image: "netflixpro.png",
             description: "A full-stack streaming platform with user authentication, payment gateway, and a sleek UI inspired by Netflix.",
             skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Netflix-Clone"
+            link: "https://github.com/preetcoder12/Netflix_preet"
         },
         {
             id: 2,
