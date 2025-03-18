@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-md transition-all">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
           {/* Logo / Name */}
-          <h1 className="font-bold text-3xl md:text-4xl">Preet Gusain</h1>
+          <h1 className="font-bold text-3xl md:text-4xl orbitron">Preet Gusain</h1>
 
           {/* Desktop Navigation */}
           <ul className="flex gap-8 text-[#007BFF] font-bold text-lg hidden md:flex">
