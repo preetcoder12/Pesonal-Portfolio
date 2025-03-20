@@ -163,17 +163,10 @@ const Hero = () => {
 
           {/* Right Section */}
           <motion.div
-            className="relative flex justify-center"
+            className="relative flex justify-center items-center"
             variants={itemVariants}
           >
-            <motion.div
-              className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-dotted border-blue-500/30"
-              animate={{
-                rotate: 360,
-                transition: { duration: 20, repeat: Infinity, ease: "linear" }
-              }}
-            />
-
+            {/* Outer rotating circle */}
             <motion.div
               className="absolute w-80 h-80 md:w-[26rem] md:h-[26rem] rounded-full border-4 border-dotted border-gray-600/30"
               animate={{
@@ -182,10 +175,20 @@ const Hero = () => {
               }}
             />
 
+            {/* Inner rotating circle */}
+            <motion.div
+              className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-dotted border-blue-500/30"
+              animate={{
+                rotate: 360,
+                transition: { duration: 20, repeat: Infinity, ease: "linear" }
+              }}
+            />
+
+            {/* Image container */}
             <motion.div
               className="relative p-4 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
               <img
                 src="preet_2.png"
@@ -239,7 +242,7 @@ const Hero = () => {
       </div>
 
       {/* Add a custom animation for the wave emoji */}
-  
+
 
     </div>
   );
