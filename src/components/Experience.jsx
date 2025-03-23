@@ -213,10 +213,7 @@ const Experience = () => {
                                                 {cert.date}
                                             </div>
                                             <p className="text-gray-300 leading-relaxed">{cert.desc}</p>
-                                            <button className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium transition-all flex items-center gap-2">
-                                                View Certificate
-                                                <ChevronRight size={16} />
-                                            </button>
+                                           
                                         </div>
                                     </div>
                                 </div>
