@@ -142,7 +142,7 @@ const Contact = () => {
                                     <div>
                                         <p className="text-gray-400 text-sm">LinkedIn</p>
                                         <a href="https://www.linkedin.com/in/preet-gusain-986b022a5/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors">
-                                            linkedin.com/in/yourprofile
+                                            linkedin.com/in/preet_gusain
                                         </a>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@ const Contact = () => {
                                     <div>
                                         <p className="text-gray-400 text-sm">GitHub</p>
                                         <a href="https://github.com/preetcoder12" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors">
-                                            github.com/yourusername
+                                            github.com/preetcoder12
                                         </a>
                                     </div>
                                 </div>
