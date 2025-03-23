@@ -69,7 +69,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+    <div className="w-full min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-black ">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-5"></div>
@@ -78,9 +78,9 @@ const Hero = () => {
       </div>
 
       {/* Grid patterns */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMTYtMzF2MWgtNHYtMWg0em0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
+      <div className="absolute  inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMTYtMzF2MWgtNHYtMWg0em0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
 
-      <div className="relative z-10 container mx-auto px-6 pt-16 pb-12">
+      <div className="relative z-10 container mx-auto px-6 pt-16 pb-12 ">
         <motion.div
           className="flex flex-col lg:flex-row justify-between items-center gap-16 mb-24"
           variants={containerVariants}

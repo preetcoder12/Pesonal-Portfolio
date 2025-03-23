@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaTruck } from 'react-icons/fa';
 
 const About = () => {
     const boxVariants = {
@@ -194,9 +195,7 @@ const About = () => {
                             
                             <a href="https://github.com/preetcoder12/Load_Mate" target="_blank" rel="noopener noreferrer" className="flex items-center p-3 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-900/10 rounded-lg group-hover:from-orange-100 group-hover:to-orange-200 dark:group-hover:from-orange-900/30 dark:group-hover:to-orange-900/20 transition-all duration-300">
                                 <div className="w-10 h-10 flex items-center justify-center bg-orange-500 rounded-lg text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                                    </svg>
+                                    <FaTruck className='text-black'/>
                                 </div>
                                 <div className="ml-4">
                                     <p className="font-semibold text-orange-600 dark:text-orange-400">TruckByte</p>

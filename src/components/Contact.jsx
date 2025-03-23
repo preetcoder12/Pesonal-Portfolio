@@ -161,15 +161,8 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className="mt-12">
-                            <img 
-                                src="preet_3.png" 
-                                alt="Contact" 
-                                className="max-w-full rounded-lg shadow-lg transform -translate-y-6 hover:scale-105 transition-transform duration-300"
-                            />
-                        </div>
+                       </div>
+                
                     </div>
 
                     {/* Contact Form */}
