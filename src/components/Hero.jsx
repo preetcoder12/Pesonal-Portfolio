@@ -214,14 +214,14 @@ const Hero = () => {
           <div className="hidden md:block h-12 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent opacity-30" />
 
           <div className="text-center flex flex-col items-center gap-2">
-            <Counter target={70} />
+            <Counter target={125} />
             <p className="text-lg md:text-xl text-gray-300">DSA Problems</p>
           </div>
 
           <div className="hidden md:block h-12 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent opacity-30" />
 
           <div className="text-center flex flex-col items-center gap-2">
-            <Counter target={155} />
+            <Counter target={233} />
             <p className="text-lg md:text-xl text-gray-300">Commits</p>
           </div>
 

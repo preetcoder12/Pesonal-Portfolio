@@ -1,16 +1,16 @@
 import { FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaHtml5, FaJs, FaServer, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
 
 const Projects = () => {
     const projects = [
         {
             id: 1,
-            name: "Netflix Clone",
-            image: "netflixpro.png",
-            description: "A full-stack streaming platform with user authentication, payment gateway, and a sleek UI inspired by Netflix.",
+            name: "Geo Alert",
+            image: "geoalert.png",
+            description: "A full-stack global disaster alert platform that provides real-time location-based notifications, user authentication, and an interactive map interface for emergencies worldwide.",
             skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Netflix_preet"
+            link: "https://github.com/preetcoder12/GeoAlert"
+
         },
         {
             id: 2,
@@ -21,12 +21,13 @@ const Projects = () => {
             link: "https://github.com/preetcoder12/Load_Mate"
         },
         {
+
             id: 3,
-            name: "Chat Application",
-            image: "chatpro.png",
-            description: "A real-time chat app with user authentication and WebSocket integration for instant messaging.",
-            skills: [FaHtml5, FaJs, FaServer, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Chat_application-login-"
+            name: "Netflix Clone",
+            image: "netflixpro.png",
+            description: "A full-stack streaming platform with user authentication, payment gateway, and a sleek UI inspired by Netflix.",
+            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
+            link: "https://github.com/preetcoder12/Netflix_preet"
         },
         {
             id: 4,
@@ -46,11 +47,11 @@ const Projects = () => {
         },
         {
             id: 6,
-            name: "LeetCode-Metrics",
-            image: "leetcodepro.png",
-            description: "A dashboard to track LeetCode problem-solving progress, including streaks and topic-wise stats.",
-            skills: [FaHtml5, FaJs, FaCss3Alt],
-            link: "https://github.com/preetcoder12/LeetCode-metric"
+            name: "Chat Application",
+            image: "chatpro.png",
+            description: "A real-time chat app with user authentication and WebSocket integration for instant messaging.",
+            skills: [FaHtml5, FaJs, FaServer, FaCss3Alt],
+            link: "https://github.com/preetcoder12/Chat_application-login-"
         }
     ];
 
@@ -67,8 +68,8 @@ const Projects = () => {
 
     const projectVariants = {
         hidden: { y: 50, opacity: 0 },
-        visible: { 
-            y: 0, 
+        visible: {
+            y: 0,
             opacity: 1,
             transition: {
                 type: "spring",
@@ -100,7 +101,7 @@ const Projects = () => {
                     </p>
                 </div>
 
-                <motion.div 
+                <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
                     variants={containerVariants}
                     initial="hidden"
@@ -108,7 +109,7 @@ const Projects = () => {
                     viewport={{ once: true, margin: "-100px" }}
                 >
                     {projects.map((project) => (
-                        <motion.div 
+                        <motion.div
                             key={project.id}
                             variants={projectVariants}
                             className="group"
@@ -131,22 +132,22 @@ const Projects = () => {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
                                     <p className="text-gray-300 mb-6 line-clamp-3">{project.description}</p>
-                                    
+
                                     <div className="flex justify-between items-center">
-                                        <a 
-                                            href={project.link} 
-                                            target="_blank" 
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
                                         >
                                             <FaGithub className="text-lg" />
                                             <span>View Code</span>
                                         </a>
-                                        
+
                                         <div className="relative overflow-hidden rounded-full">
                                             <div className="h-1 w-12 bg-blue-500 rounded-full group-hover:w-24 transition-all duration-300"></div>
                                         </div>
