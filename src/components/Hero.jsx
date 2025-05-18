@@ -135,7 +135,7 @@ const Hero = () => {
             >
               <a
                 href="/preet_cv.pdf"
-                download="Preet_CV.pdf"
+                download="Preet_Resume.pdf"
                 className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg transition duration-300 hover:bg-blue-700 hover:shadow-blue-500/20 flex items-center gap-2 group"
               >
                 <FaDownload className="group-hover:animate-bounce" />
