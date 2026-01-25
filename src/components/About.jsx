@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaTruck } from 'react-icons/fa';
-import { FaEarthAsia } from "react-icons/fa6";
+import { Code, Zap, Lightbulb, Rocket, TrendingUp, Users, Award, Target } from 'lucide-react';
 
 const About = () => {
     const boxVariants = {
@@ -9,221 +8,461 @@ const About = () => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.5 }
+            transition: { duration: 0.6, ease: "easeOut" }
         },
         hover: {
-            scale: 1.05,
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-            transition: { type: "spring", stiffness: 300 }
+            scale: 1.03,
+            y: -8,
+            transition: { type: "spring", stiffness: 300, damping: 20 }
         }
     };
 
+    const stats = [
+        { icon: Code, value: "15+", label: "Projects Built", color: "blue" },
+        { icon: Users, value: "100K+", label: "App Downloads", color: "purple" },
+        { icon: Award, value: "4+", label: "Years Experience", color: "yellow" },
+        { icon: TrendingUp, value: "125+", label: "DSA Problems", color: "green" },
+    ];
+
     return (
-        <section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-24 px-4 relative overflow-hidden">
-            {/* Background elements */}
+        <section id="aboutSection" className="bg-gradient-to-br from-black via-gray-900 to-black py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden">
+            {/* Enhanced Background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl"></div>
-                <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-purple-500/10 blur-3xl"></div>
+                <motion.div
+                    className="absolute top-20 left-10 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        x: [0, 50, 0],
+                        y: [0, 30, 0],
+                    }}
+                    transition={{
+                        duration: 12,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl"
+                    animate={{
+                        scale: [1, 1.4, 1],
+                        x: [0, -60, 0],
+                        y: [0, -40, 0],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute top-1/2 left-1/2 w-80 h-80 rounded-full bg-pink-500/5 blur-3xl"
+                    animate={{
+                        scale: [1, 1.5, 1],
+                        rotate: [0, 180, 360],
+                    }}
+                    transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                    }}
+                />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
+                {/* Header Section */}
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: -30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-12 sm:mb-16 lg:mb-20"
                 >
-                    <h2 className="text-5xl md:text-6xl font-extrabold mb-6 orbitron inline-block bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        About<span className="text-blue-500">Me</span>
+                    <motion.div
+                        className="inline-block mb-4 sm:mb-6 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <span className="text-blue-400 text-xs sm:text-sm font-semibold tracking-wide">WHO I AM</span>
+                    </motion.div>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-4 sm:mb-6 lg:mb-8 orbitron leading-tight">
+                        <span className="text-white">About</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"> Me</span>
                     </h2>
-                    <div className="flex justify-center items-center">
-                        <hr className="w-16 border-t-4 border-blue-500 mx-2" />
-                        <span className="text-gray-500 dark:text-gray-400 mx-2">What I Do</span>
-                        <hr className="w-16 border-t-4 border-blue-500 mx-2" />
+                    <div className="flex justify-center items-center gap-2 sm:gap-4 mb-4 sm:mb-6 lg:mb-8">
+                        <div className="h-1 w-12 sm:w-16 lg:w-20 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                        <div className="h-1 w-20 sm:w-24 lg:w-32 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                        <div className="h-1 w-12 sm:w-16 lg:w-20 bg-gradient-to-l from-transparent via-blue-500 to-transparent"></div>
                     </div>
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
+                        Aspiring Full Stack Developer with strong skills in <span className="text-blue-400 font-semibold">C++, Python, and JavaScript</span>. 
+                        Building scalable, creative solutions with hands-on experience in <span className="text-purple-400 font-semibold">web development, machine learning, and cloud technologies</span>. 
+                        Currently pursuing B.Tech in CSIT at Dronacharya Group of Institutions with 7.5 CGPA.
+                    </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    {/* Full Stack Developer Box */}
+                {/* Stats Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20"
+                >
+                    {stats.map((stat, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="group relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center overflow-hidden"
+                            whileHover={{ y: -5, scale: 1.05 }}
+                        >
+                            <div className={`absolute inset-0 bg-gradient-to-r from-${stat.color}-500/0 via-${stat.color}-500/10 to-${stat.color}-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`}></div>
+                            <div className="relative z-10">
+                                <motion.div
+                                    className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-${stat.color}-500/20 to-${stat.color}-600/20 border border-${stat.color}-500/30 mb-3 sm:mb-4`}
+                                    whileHover={{ rotate: 360 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <stat.icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-${stat.color}-400`} />
+                                </motion.div>
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">{stat.value}</h3>
+                                <p className="text-gray-400 text-xs sm:text-sm font-medium">{stat.label}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+                    {/* Full Stack Developer */}
                     <motion.div
-                        className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 relative overflow-hidden group"
+                        className="group relative bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 overflow-hidden shadow-2xl"
                         variants={boxVariants}
                         initial="hidden"
                         whileInView="visible"
                         whileHover="hover"
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all duration-700"></div>
-                        <div className="flex justify-between items-center border-b pb-4 border-gray-200 dark:border-gray-700">
-                            <h3 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700 tracking-wide">01</h3>
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.div>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold mt-6 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Full Stack Developer</h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-                            Passionate MERN Developer skilled in <span className="font-semibold text-blue-500">React</span>, <span className="font-semibold text-green-500">Node.js</span>,
-                            <span className="font-semibold text-yellow-500"> Express</span>, and <span className="font-semibold text-red-500">MongoDB</span>.
-                            Builds scalable, user-friendly applications with optimized performance.
-                        </p>
-                        <div className="mt-6 flex flex-wrap gap-2">
-                            {['React', 'Node.js', 'Express', 'MongoDB'].map((skill) => (
-                                <span key={skill} className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-sm font-medium rounded-full">
-                                    {skill}
-                                </span>
-                            ))}
+                        <motion.div
+                            className="absolute -right-24 -top-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl"
+                            animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.2, 0.4, 0.2],
+                            }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        />
+                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                        
+                        <div className="relative z-10">
+                            <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <motion.div
+                                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/30 to-blue-600/30 border border-blue-500/40 flex items-center justify-center"
+                                        whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <Code className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-400" />
+                                    </motion.div>
+                                    <div>
+                                        <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">01</span>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">Expertise</p>
+                                    </div>
+                                </div>
+                                <motion.div
+                                    whileHover={{ x: 8, rotate: 45 }}
+                                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </motion.div>
+                            </div>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white group-hover:text-blue-400 transition-colors">
+                                Full Stack Developer
+                            </h3>
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                                Crafting end-to-end digital experiences with the <span className="font-semibold text-blue-400">MERN stack</span> and modern frameworks. 
+                                I build robust, scalable applications using <span className="font-semibold text-green-400">React, Next.js, Node.js, Express</span>, 
+                                and <span className="font-semibold text-yellow-400">MongoDB</span>, delivering seamless user experiences from concept to deployment.
+                            </p>
+                            <div className="flex flex-wrap gap-2 sm:gap-3">
+                                {['React', 'Next.js', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'Socket.io', 'REST APIs'].map((skill, idx) => (
+                                    <motion.span
+                                        key={skill}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs sm:text-sm font-medium rounded-full backdrop-blur-sm"
+                                        whileHover={{ scale: 1.1, backgroundColor: "rgba(59, 130, 246, 0.2)" }}
+                                    >
+                                        {skill}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Problem Solver Box */}
+                    {/* Problem Solver */}
                     <motion.div
-                        className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 relative overflow-hidden group"
+                        className="group relative bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden shadow-2xl"
                         variants={boxVariants}
                         initial="hidden"
                         whileInView="visible"
                         whileHover="hover"
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="absolute -right-20 -top-20 w-40 h-40 bg-green-500/10 rounded-full blur-xl group-hover:bg-green-500/20 transition-all duration-700"></div>
-                        <div className="flex justify-between items-center border-b pb-4 border-gray-200 dark:border-gray-700">
-                            <h3 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-700 tracking-wide">02</h3>
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.div>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold mt-6 text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Problem Solver</h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-                            <span className="font-semibold text-green-500">Innovative problem solver</span> with strong analytical skills, breaking down
-                            complex challenges into efficient solutions. Passionate about
-                            <span className="font-semibold text-green-500"> optimizing algorithms</span> and
-                            <span className="font-semibold text-yellow-500"> enhancing system performance</span>.
-                        </p>
-                        <div className="mt-6 flex flex-wrap gap-2">
-                            {['Algorithms', 'Data Structures', 'Optimization', 'System Design'].map((skill) => (
-                                <span key={skill} className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 text-sm font-medium rounded-full">
-                                    {skill}
-                                </span>
-                            ))}
+                        <motion.div
+                            className="absolute -right-24 -top-24 w-48 h-48 bg-green-500/20 rounded-full blur-3xl"
+                            animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.2, 0.4, 0.2],
+                            }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-green-500/0 via-green-500/20 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                        
+                        <div className="relative z-10">
+                            <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <motion.div
+                                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-500/30 to-green-600/30 border border-green-500/40 flex items-center justify-center"
+                                        whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <Zap className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-400" />
+                                    </motion.div>
+                                    <div>
+                                        <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">02</span>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">Approach</p>
+                                    </div>
+                                </div>
+                                <motion.div
+                                    whileHover={{ x: 8, rotate: 45 }}
+                                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/30"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </motion.div>
+                            </div>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white group-hover:text-green-400 transition-colors">
+                                Problem Solver
+                            </h3>
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                                Transforming complex challenges into <span className="font-semibold text-green-400">elegant solutions</span>. 
+                                Strong foundation in <span className="font-semibold text-blue-400">C++ and Python</span>, with expertise in 
+                                <span className="font-semibold text-yellow-400"> Data Structures, Algorithms, and OOP</span>. 
+                                I excel at breaking down intricate problems, analyzing system architectures, and implementing optimized solutions.
+                            </p>
+                            <div className="flex flex-wrap gap-3">
+                                {['C++', 'Python', 'Algorithms', 'Data Structures', 'OOP', 'System Design', 'Optimization'].map((skill, idx) => (
+                                    <motion.span
+                                        key={skill}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        className="px-4 py-2 bg-green-500/10 border border-green-500/30 text-green-300 text-sm font-medium rounded-full backdrop-blur-sm"
+                                        whileHover={{ scale: 1.1, backgroundColor: "rgba(34, 197, 94, 0.2)" }}
+                                    >
+                                        {skill}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Mindset & Skills Box */}
+                    {/* Innovation & Growth */}
                     <motion.div
-                        className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 relative overflow-hidden group"
+                        className="group relative bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden shadow-2xl"
                         variants={boxVariants}
                         initial="hidden"
                         whileInView="visible"
                         whileHover="hover"
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="absolute -right-20 -top-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-xl group-hover:bg-yellow-500/20 transition-all duration-700"></div>
-                        <div className="flex justify-between items-center border-b pb-4 border-gray-200 dark:border-gray-700">
-                            <h3 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-700 tracking-wide">03</h3>
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-900/30"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.div>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold mt-6 text-gray-900 dark:text-white group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">Mindset & Skills</h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-                            <span className="font-semibold text-yellow-500">Lifelong learner</span> with a growth mindset, thriving on challenges.
-                            Strong <span className="font-semibold text-green-500">team player</span> with excellent problem-solving skills.
-                            Passionate about <span className="font-semibold text-yellow-500">delivering high-quality code</span> and learning new technologies.
-                        </p>
-                        <div className="mt-6 flex flex-wrap gap-2">
-                            {['Collaboration', 'Communication', 'Adaptability', 'Growth Mindset'].map((skill) => (
-                                <span key={skill} className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300 text-sm font-medium rounded-full">
-                                    {skill}
-                                </span>
-                            ))}
+                        <motion.div
+                            className="absolute -right-24 -top-24 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl"
+                            animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.2, 0.4, 0.2],
+                            }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-yellow-500/0 via-yellow-500/20 to-yellow-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                        
+                        <div className="relative z-10">
+                            <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <motion.div
+                                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-yellow-500/30 to-yellow-600/30 border border-yellow-500/40 flex items-center justify-center"
+                                        whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-400" />
+                                    </motion.div>
+                                    <div>
+                                        <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">03</span>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">Mindset</p>
+                                    </div>
+                                </div>
+                                <motion.div
+                                    whileHover={{ x: 8, rotate: 45 }}
+                                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-500/30"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </motion.div>
+                            </div>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white group-hover:text-yellow-400 transition-colors">
+                                Innovation & Growth
+                            </h3>
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                                A <span className="font-semibold text-yellow-400">lifelong learner</span> with expertise in <span className="font-semibold text-purple-400">Machine Learning and Data Analytics</span>. 
+                                Team Leader in multiple hackathons (IDE Bootcamp 2025, Codethon, SiH Hackathon 2025). 
+                                I thrive in collaborative environments, bringing <span className="font-semibold text-green-400">creative solutions</span> to the table 
+                                while continuously expanding my skill set with cloud technologies and AI.
+                            </p>
+                            <div className="flex flex-wrap gap-3">
+                                {['Machine Learning', 'Data Analytics', 'Azure Cloud', 'Team Leadership', 'Continuous Learning', 'Adaptability'].map((skill, idx) => (
+                                    <motion.span
+                                        key={skill}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 text-sm font-medium rounded-full backdrop-blur-sm"
+                                        whileHover={{ scale: 1.1, backgroundColor: "rgba(234, 179, 8, 0.2)" }}
+                                    >
+                                        {skill}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Featured Projects Box */}
+                    {/* Impact & Achievements */}
                     <motion.div
-                        className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-8 relative overflow-hidden group"
+                        className="group relative bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-xl border border-gray-700/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden shadow-2xl"
                         variants={boxVariants}
                         initial="hidden"
                         whileInView="visible"
                         whileHover="hover"
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.2 }}
                     >
-                        <div className="absolute -right-20 -top-20 w-40 h-40 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all duration-700"></div>
-                        <div className="flex justify-between items-center border-b pb-4 border-gray-200 dark:border-gray-700">
-                            <h3 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-700 tracking-wide">04</h3>
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/30"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </motion.div>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold mt-6 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Featured Projects</h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-                            Check out my latest projects:
-                        </p>
-                        <div className="mt-4 space-y-4">
-                            <a href="https://github.com/preetcoder12/GeoAlert" target="_blank" rel="noopener noreferrer" className="flex items-center p-3 bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-900/10 rounded-lg group-hover:from-red-100 group-hover:to-red-200 dark:group-hover:from-red-900/30 dark:group-hover:to-red-900/20 transition-all duration-300">
-
-                                <div className="w-10 h-10 flex items-center justify-center bg-red-500 rounded-lg text-white">
-                                    <FaEarthAsia className='text-white' />
+                        <motion.div
+                            className="absolute -right-24 -top-24 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl"
+                            animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.2, 0.4, 0.2],
+                            }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500/0 via-purple-500/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+                        
+                        <div className="relative z-10">
+                            <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <motion.div
+                                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500/30 to-purple-600/30 border border-purple-500/40 flex items-center justify-center"
+                                        whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <Rocket className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-400" />
+                                    </motion.div>
+                                    <div>
+                                        <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">04</span>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">Impact</p>
+                                    </div>
                                 </div>
-                                <div className="ml-4">
-                                    <p className="font-bold text-red-600 dark:text-red-400 text-lg">GeoAlert</p>
-                                    <p className="text-sm text-gray-700 dark:text-gray-300">
-                                        A full-stack web application providing real-time global disaster alerts and updates.
-                                    </p>
-                                </div>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-auto text-red-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-
-                            <a href="https://github.com/preetcoder12/Load_Mate" target="_blank" rel="noopener noreferrer" className="flex items-center p-3 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-900/10 rounded-lg group-hover:from-orange-100 group-hover:to-orange-200 dark:group-hover:from-orange-900/30 dark:group-hover:to-orange-900/20 transition-all duration-300">
-                                <div className="w-10 h-10 flex items-center justify-center bg-orange-500 rounded-lg text-white">
-                                    <FaTruck className='text-black' />
-                                </div>
-                                <div className="ml-4">
-                                    <p className="font-bold text-orange-600 dark:text-orange-400 text-lg">TruckByte</p>
-                                    <p className="text-sm text-gray-700 dark:text-gray-300">
-                                        A smart and efficient truck management platform for logistics and fleet operations.
-                                    </p>
-                                </div>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-auto text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
+                                <motion.div
+                                    whileHover={{ x: 8, rotate: 45 }}
+                                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </motion.div>
+                            </div>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white group-hover:text-purple-400 transition-colors">
+                                Impact & Achievements
+                            </h3>
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                                Building products that make a difference. From <span className="font-semibold text-purple-400">disaster alert systems (GeoAlert)</span> 
+                                to <span className="font-semibold text-blue-400">logistics management platforms (TruckByte)</span>, I create solutions that scale. 
+                                Hackathon finalist and team leader, with projects leveraging <span className="font-semibold text-green-400">real-time technologies</span> 
+                                like WebSockets and geofencing.
+                            </p>
+                            <div className="flex flex-wrap gap-3">
+                                {['Product Development', 'Hackathon Winner', 'Real-time Systems', 'Geofencing', 'WebSockets', 'Team Leadership'].map((skill, idx) => (
+                                    <motion.span
+                                        key={skill}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.05 }}
+                                        className="px-4 py-2 bg-purple-500/10 border border-purple-500/30 text-purple-300 text-sm font-medium rounded-full backdrop-blur-sm"
+                                        whileHover={{ scale: 1.1, backgroundColor: "rgba(168, 85, 247, 0.2)" }}
+                                    >
+                                        {skill}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 </div>
 
-                {/* CTA Section */}
+                {/* Call to Action */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="mt-16 text-center"
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="mt-20 text-center"
                 >
-
+                    <div className="inline-block bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-gray-700/50 rounded-2xl p-8 backdrop-blur-xl">
+                        <Target className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                            Ready to Build Something Amazing?
+                        </h3>
+                        <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                            Let's collaborate to turn your vision into reality. I'm always excited to work on innovative projects 
+                            that push boundaries and create meaningful impact.
+                        </p>
+                        <motion.a
+                            href="#contactSection"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <span>Get In Touch</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </motion.a>
+                    </div>
                 </motion.div>
             </div>
         </section>

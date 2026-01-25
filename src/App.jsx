@@ -9,7 +9,7 @@ import Skills from "./components/Skills";
 
 function App() {
   return (
-    <>
+    <div className="w-full overflow-x-hidden max-w-full">
       {/* Navbar with Links for smooth scrolling */}
       <Navbar />
 
@@ -33,7 +33,7 @@ function App() {
 
       {/* Footer Section */}
       <Footer />
-    </>
+    </div>
   );
 }
 

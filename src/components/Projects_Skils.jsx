@@ -1,57 +1,69 @@
-import { FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaHtml5, FaJs, FaServer, FaGithub } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaHtml5, FaJs, FaServer, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Projects = () => {
-    const projects = [
+    const [activeTab, setActiveTab] = useState("apps");
+
+    // Apps Section
+    const apps = [
         {
             id: 1,
-            name: "Geo Alert",
-            image: "geoalert.png",
-            description: "A full-stack global disaster alert platform that provides real-time location-based notifications, user authentication, and an interactive map interface for emergencies worldwide.",
-            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/GeoAlert"
-
+            name: "VoiceToNotes",
+            logo: "/vtnlogonew.webp",
+            description: "Turn fleeting thoughts into lasting text with Voice To Notes, a live transcription app built for creators and teams. Capture, edit, and share ideas instantly on the go.",
+            link: "https://play.google.com/store/apps/details?id=ai.voicetonotes.mobileapp&hl=en_US",
+            category: "Mobile App"
         },
         {
             id: 2,
-            name: "TruckByte",
-            image: "truckbyte.png",
-            description: "A trucking management platform enabling users to track, assign, and manage trucks with a built-in role-based system.",
-            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Load_Mate"
+            name: "Traverse VPN",
+            logo: "/vpnlogo.png",
+            description: "Stay secure online with Traverse VPN, a fast and reliable VPN powered by a custom protocol on top of WireGuard. It ensures your privacy and data are always protected without slowing you down.",
+            link: "https://apps.apple.com/in/app/traversevpn-ai-app-with-vpn/id6754161193",
+            category: "Security App"
         },
         {
-
             id: 3,
-            name: "Netflix Clone",
-            image: "netflixpro.png",
-            description: "A full-stack streaming platform with user authentication, payment gateway, and a sleek UI inspired by Netflix.",
-            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Netflix_preet"
+            name: "Qyuro.Sity",
+            logo: "/Qyuro.Sity.png",
+            description: "Qyuro is an all-in-one AI assistant built to handle everything in one place, from everyday questions to creative and productivity tasks. Simple, fast, and designed to adapt to how you think and work.",
+            link: "#",
+            category: "AI Assistant",
+            comingSoon: true
+        }
+    ];
+
+    // Landing Pages Section
+    const landingPages = [
+        {
+            id: 1,
+            name: "TalesFM",
+            image: "/talesfmlanding.png",
+            description: "Your Free Online Radio FM. Reimagined. A premier internet radio platform with no hidden costs, no interruptions, just pure audio.",
+            link: "https://talesfm.com/"
+        },
+        {
+            id: 2,
+            name: "Traverse VPN",
+            image: "/traversevpnlanding.png",
+            description: "Strong security, seamless privacy. A fast and reliable VPN service with a custom protocol ensuring your privacy and data protection.",
+            link: "https://TraverseVpn.com"
+        },
+        {
+            id: 3,
+            name: "VoiceToNotes",
+            image: "/voicetonoteslanding.png",
+            description: "Capture. Transcribe. Anytime. Never let a brilliant idea slip away. Precision Voice to Notes technology that turns speech into accurate, formatted text.",
+            link: "https://voicetonotes.ai"
         },
         {
             id: 4,
-            name: "AI Imagen",
-            image: "text_2_img.png",
-            description: "AI Imagen is an API-powered tool that generates images from text descriptions using AI.",
-            skills: [FaReact, FaNodeJs, FaDatabase, FaCss3Alt],
-            link: "https://github.com/preetcoder12/RazorPay-clone"
-        },
-        {
-            id: 5,
-            name: "Blog-Sphere",
-            image: "blogpro.png",
-            description: "A blogging platform where users can write, edit, and share articles with a built-in commenting system.",
-            skills: [FaReact, FaNodeJs, FaDatabase],
-            link: "https://github.com/preetcoder12/Blog-Sphere"
-        },
-        {
-            id: 6,
-            name: "Chat Application",
-            image: "chatpro.png",
-            description: "A real-time chat app with user authentication and WebSocket integration for instant messaging.",
-            skills: [FaHtml5, FaJs, FaServer, FaCss3Alt],
-            link: "https://github.com/preetcoder12/Chat_application-login-"
+            name: "Web3Task",
+            image: "/web3tasklanding.png",
+            description: "Innovate for the future. We help startups scale with strong SaaS, conversion-ready dashboards, and integrated tech, AI, design, and automation solutions.",
+            link: "https://web3task.com/"
         }
     ];
 
@@ -61,7 +73,7 @@ const Projects = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.15
             }
         }
     };
@@ -79,84 +91,330 @@ const Projects = () => {
         }
     };
 
+    // Carousel scroll functions
+    const scrollLeft = () => {
+        const container = document.getElementById('landing-pages-carousel');
+        if (container) {
+            const cardWidth = container.querySelector('.flex-shrink-0')?.offsetWidth || 600;
+            container.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        const container = document.getElementById('landing-pages-carousel');
+        if (container) {
+            const cardWidth = container.querySelector('.flex-shrink-0')?.offsetWidth || 600;
+            container.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+        }
+    };
+
     return (
-        <section className="relative py-24 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
-            {/* Background elements */}
+        <section id="projectsSkillsSection" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+            {/* Enhanced Background elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMC0xNnYxaC0ydi0xaC0ydjFoLTJ2LTFoLTJ2MWgtMnYtMWgtMnYxaC0ydi0xaC00djFoLTJ2LTFIMTh2MWgtMnYtMWgtMnYxaC0ydi0xaC0ydjFIOHYtMUg2djFoLTJ2LTFoLTJ2MWgtMnYtMUgwdjNjMCAxMC41IDcuMiAxOSAxNyAxOS4xVjIwaDZ2MTkuMkMyMy41IDM5LjkgMjkuNSA0MCAzMC44IDQwaDE3LjRjMS4yIDAgNS4zLTAuMSA4LjctMC44di0yLjVjLTAuOSAwLjItMS42IDAuNC0yLjYgMC41LS43IDAuMS0xLjMgMC4xLTIuMSAwLjJsLTQuMiAwLjNjLTAuNyAwLTEuNiAwLjItMi40IDAuMi0wLjcgMC0xLjYgMC0yLjMtMC4xbC0zLjEtMC4zYy0wLjcgMC0xLjYtMC4yLTIuNC0wLjMtMC45LTAuMS0xLjgtMC4yLTIuNS0wLjRsLTMuNi0wLjhWMzZoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTJoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFIMzhWMTBoLTJ2LTFoLTJ2LTFoLTJWN2gtMlY2aC0yVjVoLTJWNGgtMlYzaC0yVjJoLTJWMWgtMlYwaC0yYzAtMC43LTAuMS0xLjMtMC4yLTJIMjB2Mmg0djFoLTIydjFoLTJ2MWgtMnYxaC0ydjFoLTJ2MWgtMnYxaC0ydjFoLTJ2MWgtMnYxaC0ydjFoLTIydi0yaC0ydjQ2YzAgOC4zIDYuNyAxNSAxNSAxNWg0M2MyLjcgMCA1LjQtMC41IDgtMS4yVjQwSDQwSDM2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+                <motion.div
+                    className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        x: [0, 50, 0],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/10 rounded-full filter blur-3xl"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        x: [0, -40, 0],
+                    }}
+                    transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMC0xNnYxaC0ydi0xaC0ydjFoLTJ2LTFoLTJ2MWgtMnYtMWgtMnYxaC0ydi0xaC00djFoLTJ2LTFIMTh2MWgtMnYtMWgtMnYxaC0ydi0xaC0ydjFIOHYtMUg2djFoLTJ2LTFoLTJ2MWgtMnYtMUgwdjNjMCAxMC41IDcuMiAxOSAxNyAxOS4xVjIwaDZ2MTkuMkMyMy41IDM5LjkgMjkuNSA0MCAzMC44IDQwaDE3LjRjMS4yIDAgNS4zLTAuMSA4LjctMC44di0yLjVjLTAuOSAwLjItMS42IDAuNC0yLjYgMC41LS43IDAuMS0xLjMgMC4xLTIuMSAwLjJsLTQuMiAwLjNjLTAuNyAwLTEuNiAwLjItMi40IDAuMi0wLjcgMC0xLjYgMC0yLjMtMC4xbC0zLjEtMC4zYy0wLjcgMC0xLjYtMC4yLTIuNC0wLjMtMC45LTAuMS0xLjgtMC4yLTIuNS0wLjRsLTMuNi0wLjhWMzZoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTJoLTR2LTFoNHYtMWgtNHYtMWg0di0xaC00di0xaDR2LTFoLTR2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFoLTJ2LTFIMzhWMTBoLTJ2LTFoLTJ2LTFoLTJWN2gtMlY2aC0yVjVoLTJWNGgtMlYzaC0yVjJoLTJWMWgtMlYwaC0yYzAtMC43LTAuMS0xLjMtMC4yLTJIMjB2Mmg0djFoLTIydjFoLTJ2MWgtMnYxaC0ydjFoLTJ2MWgtMnYxaC0ydjFoLTJ2MWgtMnYxaC0ydjFoLTIydi0yaC0ydjQ2YzAgOC4zIDYuNyAxNSAxNSAxNWg0M2MyLjcgMCA1LjQtMC41IDgtMS4yVjQwSDQwSDM2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 orbitron">
-                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Projects</span>
-                    </h2>
-                    <div className="flex items-center justify-center mb-8">
-                        <div className="h-1 w-12 bg-blue-600 rounded-full"></div>
-                        <div className="h-1 w-24 mx-2 bg-blue-500 rounded-full"></div>
-                        <div className="h-1 w-12 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-                        A showcase of my web development journey and technical expertise
-                    </p>
-                </div>
-
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-full overflow-x-hidden">
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    className="text-center mb-8 sm:mb-12"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                 >
-                    {projects.map((project) => (
-                        <motion.div
-                            key={project.id}
-                            variants={projectVariants}
-                            className="group"
-                        >
-                            <div className="h-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 shadow-xl transition-all duration-500 hover:shadow-blue-500/20 hover:border-blue-500/30">
-                                <div className="relative overflow-hidden">
-                                    <img
-                                        src={project.image}
-                                        alt={project.name}
-                                        className="w-full h-52 object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                        <div className="flex items-center justify-center space-x-4">
-                                            {project.skills.map((Icon, index) => (
-                                                <div key={index} className="bg-gray-900/80 p-2 rounded-full">
-                                                    <Icon className="text-2xl text-blue-400" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="p-6">
-                                    <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
-                                    <p className="text-gray-300 mb-6 line-clamp-3">{project.description}</p>
-
-                                    <div className="flex justify-between items-center">
-                                        <a
-                                            href={project.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
-                                        >
-                                            <FaGithub className="text-lg" />
-                                            <span>View Code</span>
-                                        </a>
-
-                                        <div className="relative overflow-hidden rounded-full">
-                                            <div className="h-1 w-12 bg-blue-500 rounded-full group-hover:w-24 transition-all duration-300"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                    <motion.div
+                        className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 border border-blue-500/20 rounded-full"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="text-blue-400 text-xs sm:text-sm font-medium">My Work</span>
+                    </motion.div>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 sm:mb-6 orbitron">
+                        <span className="text-white">My </span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Projects</span>
+                    </h2>
+                    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6 lg:mb-8">
+                        <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent to-blue-500"></div>
+                        <div className="h-1 w-16 sm:w-24 bg-blue-500 rounded-full"></div>
+                        <div className="h-1 w-12 sm:w-16 bg-gradient-to-l from-transparent to-blue-500"></div>
+                    </div>
                 </motion.div>
+
+                {/* Toggle Button */}
+                <motion.div
+                    className="flex justify-center mb-8 sm:mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                >
+                    <div className="flex bg-gray-800/50 backdrop-blur-xl p-1 sm:p-1.5 rounded-full border border-gray-700/50 shadow-2xl">
+                        <motion.button
+                            onClick={() => setActiveTab("apps")}
+                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${
+                                activeTab === "apps"
+                                    ? "text-white"
+                                    : "text-gray-400 hover:text-white"
+                            }`}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {activeTab === "apps" && (
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+                                    layoutId="activeTab"
+                                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                />
+                            )}
+                            <span className="relative z-10">Apps</span>
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab("landing")}
+                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${
+                                activeTab === "landing"
+                                    ? "text-white"
+                                    : "text-gray-400 hover:text-white"
+                            }`}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {activeTab === "landing" && (
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+                                    layoutId="activeTab"
+                                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                />
+                            )}
+                            <span className="relative z-10">Landing Pages</span>
+                        </motion.button>
+                    </div>
+                </motion.div>
+
+                {/* Apps Section */}
+                <AnimatePresence mode="wait">
+                    {activeTab === "apps" && (
+                        <motion.div
+                            key="apps"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+                            variants={containerVariants}
+                        >
+                            {apps.map((app) => (
+                                <motion.div
+                                    key={app.id}
+                                    variants={projectVariants}
+                                    className="group"
+                                    whileHover={{ y: -10 }}
+                                >
+                                    <div className="h-full bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-700/50 shadow-2xl transition-all duration-500 hover:shadow-blue-500/30 hover:border-blue-500/50 relative">
+                                        {/* Glow effect on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
+                                        
+                                        {/* Logo Section */}
+                                        <div className="relative p-6 sm:p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/50">
+                                            <div className="flex items-center justify-center h-24 sm:h-32">
+                                                <motion.img
+                                                    src={app.logo}
+                                                    alt={app.name}
+                                                    className="max-h-20 sm:max-h-24 max-w-20 sm:max-w-24 object-contain filter drop-shadow-2xl"
+                                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                                    transition={{ duration: 0.3 }}
+                                                />
+                                            </div>
+                                            {app.comingSoon && (
+                                                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full">
+                                                    <span className="text-yellow-400 text-xs font-medium">Coming Soon</span>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        <div className="p-4 sm:p-6 relative z-10">
+                                            <div className="mb-2">
+                                                <span className="text-xs text-blue-400 font-medium">{app.category}</span>
+                                            </div>
+                                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors">
+                                                {app.name}
+                                            </h3>
+                                            <p className="text-gray-300 mb-4 sm:mb-6 line-clamp-3 leading-relaxed text-xs sm:text-sm">
+                                                {app.description}
+                                            </p>
+
+                                            <div className="flex justify-between items-center flex-wrap gap-2">
+                                                {app.link !== "#" ? (
+                                                    <motion.a
+                                                        href={app.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-lg text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all text-xs sm:text-sm"
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        <FaExternalLinkAlt className="text-xs sm:text-sm" />
+                                                        <span className="font-medium">Download</span>
+                                                    </motion.a>
+                                                ) : (
+                                                    <div className="px-3 sm:px-4 py-1.5 sm:py-2 text-gray-500 text-xs sm:text-sm">
+                                                        Coming Soon
+                                                    </div>
+                                                )}
+
+                                                <motion.div
+                                                    className="relative overflow-hidden rounded-full bg-gray-700/50 h-2 w-12 sm:w-16 hidden sm:block"
+                                                    initial={{ width: 0 }}
+                                                    whileHover={{ width: 64 }}
+                                                    transition={{ duration: 0.3 }}
+                                                >
+                                                    <div className="h-full w-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                                                </motion.div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )}
+
+                    {/* Landing Pages Section - Horizontal Carousel */}
+                    {activeTab === "landing" && (
+                        <motion.div
+                            key="landing"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative"
+                        >
+                            {/* Navigation Arrows */}
+                            <button
+                                onClick={scrollLeft}
+                                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-gray-800/80 backdrop-blur-xl border border-gray-700/50 rounded-full flex items-center justify-center text-white hover:bg-gray-700/80 hover:border-blue-500/50 transition-all shadow-2xl"
+                                aria-label="Scroll left"
+                            >
+                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                            <button
+                                onClick={scrollRight}
+                                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-gray-800/80 backdrop-blur-xl border border-gray-700/50 rounded-full flex items-center justify-center text-white hover:bg-gray-700/80 hover:border-blue-500/50 transition-all shadow-2xl"
+                                aria-label="Scroll right"
+                            >
+                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+
+                            {/* Carousel Container */}
+                            <div
+                                id="landing-pages-carousel"
+                                className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 px-2 sm:px-4 md:px-6 snap-x snap-mandatory"
+                                style={{
+                                    scrollbarWidth: 'none',
+                                    msOverflowStyle: 'none',
+                                    WebkitOverflowScrolling: 'touch',
+                                }}
+                            >
+                                {landingPages.map((page, index) => (
+                                    <motion.div
+                                        key={page.id}
+                                        initial={{ opacity: 0, x: 50 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="flex-shrink-0 w-[calc(100vw-2rem)] sm:w-[calc(100vw-4rem)] md:w-[600px] lg:w-[700px] group snap-center"
+                                        whileHover={{ y: -10 }}
+                                    >
+                                        <div className="h-full bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-700/50 shadow-2xl transition-all duration-500 hover:shadow-blue-500/30 hover:border-blue-500/50 relative">
+                                            {/* Glow effect on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
+                                            
+                                            {/* Landing Page Image */}
+                                            <div className="relative overflow-hidden">
+                                                <motion.img
+                                                    src={page.image}
+                                                    alt={page.name}
+                                                    className="w-full h-auto object-cover"
+                                                    whileHover={{ scale: 1.05 }}
+                                                    transition={{ duration: 0.5 }}
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                            </div>
+
+                                            <div className="p-4 sm:p-6 relative z-10">
+                                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors">
+                                                    {page.name}
+                                                </h3>
+                                                <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
+                                                    {page.description}
+                                                </p>
+
+                                                <div className="flex justify-between items-center flex-wrap gap-2">
+                                                    {page.link !== "#" ? (
+                                                        <motion.a
+                                                            href={page.link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-lg text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all text-xs sm:text-sm"
+                                                            whileHover={{ scale: 1.05 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                        >
+                                                            <FaExternalLinkAlt className="text-xs sm:text-sm" />
+                                                            <span className="font-medium">View Landing Page</span>
+                                                        </motion.a>
+                                                    ) : (
+                                                        <div className="px-3 sm:px-4 py-1.5 sm:py-2 text-gray-500 text-xs sm:text-sm">
+                                                            Coming Soon
+                                                        </div>
+                                                    )}
+
+                                                    <motion.div
+                                                        className="relative overflow-hidden rounded-full bg-gray-700/50 h-2 w-12 sm:w-16 hidden sm:block"
+                                                        initial={{ width: 0 }}
+                                                        whileHover={{ width: 64 }}
+                                                        transition={{ duration: 0.3 }}
+                                                    >
+                                                        <div className="h-full w-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                                                    </motion.div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Custom Scrollbar Styling */}
+                            <style>{`
+                                #landing-pages-carousel::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            `}</style>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );

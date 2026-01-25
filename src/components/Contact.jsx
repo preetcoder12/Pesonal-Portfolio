@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { Send, Mail, User, MessageSquare, ArrowRight, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 
 const Contact = () => {
@@ -86,41 +87,99 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-            {/* Background elements */}
+        <div id="contactSection" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+            {/* Enhanced Background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10"></div>
-                <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
-                <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-yellow-500 rounded-full filter blur-3xl opacity-5"></div>
+                <motion.div
+                    className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-20"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        x: [0, 30, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        x: [0, -40, 0],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute top-1/2 left-1/2 w-40 h-40 bg-yellow-500 rounded-full filter blur-3xl opacity-10"
+                    animate={{
+                        scale: [1, 1.4, 1],
+                        rotate: [0, 180, 360],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
             </div>
 
-            <div className="w-full max-w-6xl mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white orbitron">
-                        Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-600">Touch</span>
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+                <motion.div
+                    className="text-center mb-12 sm:mb-16 lg:mb-20"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <motion.div
+                        className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="text-yellow-400 text-xs sm:text-sm font-medium">Let's Connect</span>
+                    </motion.div>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white orbitron">
+                        <span className="text-white">Get In </span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500">Touch</span>
                     </h2>
-                    <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
+                    <div className="flex items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-6">
+                        <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent to-yellow-500"></div>
+                        <div className="h-1 w-20 sm:w-24 md:w-32 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full"></div>
+                        <div className="h-1 w-12 sm:w-16 bg-gradient-to-l from-transparent to-yellow-500"></div>
+                    </div>
+                    <p className="mt-4 sm:mt-6 text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg px-2 sm:px-0">
                         Have a question or want to work together? Drop me a message and I'll get back to you soon!
                     </p>
-                    <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto mt-6"></div>
-                </div>
+                </motion.div>
 
                 {/* Contact Container */}
                 <div 
                     ref={animationRef}
-                    className={`flex flex-col lg:flex-row gap-8 items-stretch max-w-5xl mx-auto transition-all duration-1000 ${
+                    className={`flex flex-col lg:flex-row gap-6 sm:gap-8 items-stretch max-w-5xl mx-auto transition-all duration-1000 ${
                         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}
                 >
-                    {/* Contact Info */}
-                    <div className="lg:w-2/5 bg-gray-800 bg-opacity-50 backdrop-blur-lg rounded-3xl p-8 border border-gray-700 shadow-xl flex flex-col justify-between">
+                    {/* Enhanced Contact Info */}
+                    <motion.div
+                        className="lg:w-2/5 bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl flex flex-col justify-between"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-                            <p className="text-gray-300 mb-8">
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Contact Information</h3>
+                            <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">
                                 Feel free to reach out through any of these channels. I'm always open to discussing new projects, creative ideas, or opportunities.
                             </p>
                             
-                            <div className="space-y-6">
+                            <div className="space-y-4 sm:space-y-6">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-yellow-500 bg-opacity-20 flex items-center justify-center">
                                         <Mail className="w-5 h-5 text-yellow-400" />
@@ -162,14 +221,19 @@ const Contact = () => {
                                 </div>
                             </div>
                        </div>
-                
-                    </div>
+                    </motion.div>
 
-                    {/* Contact Form */}
-                    <div className="lg:w-3/5 bg-gray-800 bg-opacity-50 backdrop-blur-lg rounded-3xl p-8 border border-gray-700 shadow-xl">
-                        <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                    {/* Enhanced Contact Form */}
+                    <motion.div
+                        className="lg:w-3/5 bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-700/50 shadow-2xl"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Send a Message</h3>
                         
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                             <div className="relative">
                                 <div className={`absolute left-3 top-3 transition-all duration-300 ${
                                     focusedField === 'name' || formData.name 
@@ -187,7 +251,7 @@ const Contact = () => {
                                     onChange={handleInputChange}
                                     onFocus={() => handleFocus('name')}
                                     onBlur={handleBlur}
-                                    className={`w-full py-3 px-12 bg-gray-700 border rounded-xl focus:outline-none focus:ring-2 text-white transition-all duration-300 ${
+                                    className={`w-full py-2.5 sm:py-3 px-10 sm:px-12 bg-gray-700 border rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 text-white text-sm sm:text-base transition-all duration-300 ${
                                         formErrors.name 
                                             ? 'border-red-500 focus:ring-red-500' 
                                             : 'border-gray-600 focus:ring-yellow-500'
@@ -215,7 +279,7 @@ const Contact = () => {
                                     onChange={handleInputChange}
                                     onFocus={() => handleFocus('email')}
                                     onBlur={handleBlur}
-                                    className={`w-full py-3 px-12 bg-gray-700 border rounded-xl focus:outline-none focus:ring-2 text-white transition-all duration-300 ${
+                                    className={`w-full py-2.5 sm:py-3 px-10 sm:px-12 bg-gray-700 border rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 text-white text-sm sm:text-base transition-all duration-300 ${
                                         formErrors.email 
                                             ? 'border-red-500 focus:ring-red-500' 
                                             : 'border-gray-600 focus:ring-yellow-500'
@@ -242,7 +306,7 @@ const Contact = () => {
                                     onChange={handleInputChange}
                                     onFocus={() => handleFocus('comment')}
                                     onBlur={handleBlur}
-                                    className={`w-full py-3 px-12 bg-gray-700 border rounded-xl focus:outline-none focus:ring-2 text-white transition-all duration-300 h-32 resize-none ${
+                                    className={`w-full py-2.5 sm:py-3 px-10 sm:px-12 bg-gray-700 border rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 text-white text-sm sm:text-base transition-all duration-300 h-28 sm:h-32 resize-none ${
                                         formErrors.comment 
                                             ? 'border-red-500 focus:ring-red-500' 
                                             : 'border-gray-600 focus:ring-yellow-500'
@@ -257,7 +321,7 @@ const Contact = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-medium rounded-xl shadow-lg hover:shadow-amber-900/30 focus:outline-none transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 w-full md:w-auto"
+                                    className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-white text-sm sm:text-base font-medium rounded-lg sm:rounded-xl shadow-lg hover:shadow-amber-900/30 focus:outline-none transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 w-full"
                                 >
                                     {loading ? (
                                         <>
@@ -288,7 +352,7 @@ const Contact = () => {
                                 <p className="text-red-400">This is just frontend i haven't created the backend yet because of college exams so please give me some time .</p>
                             </div>
                         )}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>
