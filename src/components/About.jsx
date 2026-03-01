@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Zap, Lightbulb, Rocket, TrendingUp, Users, Award, Target } from 'lucide-react';
+import { Code, Zap, Lightbulb, Rocket, TrendingUp, Users, Award, Target, Layers, GitBranch } from 'lucide-react';
 
 const About = () => {
     const boxVariants = {
@@ -18,10 +18,12 @@ const About = () => {
     };
 
     const stats = [
-        { icon: Code, value: "15+", label: "Projects Built", color: "blue" },
-        { icon: Users, value: "100K+", label: "App Downloads", color: "purple" },
-        { icon: Award, value: "4+", label: "Years Experience", color: "yellow" },
-        { icon: TrendingUp, value: "125+", label: "DSA Problems", color: "green" },
+        { icon: Code, value: "30+", label: "Projects Built", color: "blue" },
+        { icon: TrendingUp, value: "240+", label: "DSA Problems", color: "green" },
+        { icon: Layers, value: "25+", label: "Technologies Used", color: "yellow" },
+        { icon: GitBranch, value: "1000+", label: "GitHub Commits", color: "purple" },
+        { icon: Zap, value: "1000+", label: "Last Year Contributions", color: "pink" },
+        { icon: Award, value: "3+", label: "Hackathons", color: "blue" },
     ];
 
     return (
@@ -96,8 +98,8 @@ const About = () => {
                         <div className="h-1 w-12 sm:w-16 lg:w-20 bg-gradient-to-l from-transparent via-blue-500 to-transparent"></div>
                     </div>
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-                        Aspiring Full Stack Developer with strong skills in <span className="text-blue-400 font-semibold">C++, Python, and JavaScript</span>. 
-                        Building scalable, creative solutions with hands-on experience in <span className="text-purple-400 font-semibold">web development, machine learning, and cloud technologies</span>. 
+                        Aspiring Full Stack Developer with strong skills in <span className="text-blue-400 font-semibold">C++, Python, and JavaScript</span>.
+                        Building scalable, creative solutions with hands-on experience in <span className="text-purple-400 font-semibold">web development, machine learning, and cloud technologies</span>.
                         Currently pursuing B.Tech in CSIT at Dronacharya Group of Institutions with 7.5 CGPA.
                     </p>
                 </motion.div>
@@ -108,7 +110,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20"
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20"
                 >
                     {stats.map((stat, index) => (
                         <motion.div
@@ -160,7 +162,7 @@ const About = () => {
                             }}
                         />
                         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-                        
+
                         <div className="relative z-10">
                             <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
                                 <div className="flex items-center gap-3 sm:gap-4">
@@ -189,8 +191,8 @@ const About = () => {
                                 Full Stack Developer
                             </h3>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                                Crafting end-to-end digital experiences with the <span className="font-semibold text-blue-400">MERN stack</span> and modern frameworks. 
-                                I build robust, scalable applications using <span className="font-semibold text-green-400">React, Next.js, Node.js, Express</span>, 
+                                Crafting end-to-end digital experiences with the <span className="font-semibold text-blue-400">MERN stack</span> and modern frameworks.
+                                I build robust, scalable applications using <span className="font-semibold text-green-400">React, Next.js, Node.js, Express</span>,
                                 and <span className="font-semibold text-yellow-400">MongoDB</span>, delivering seamless user experiences from concept to deployment.
                             </p>
                             <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -233,7 +235,7 @@ const About = () => {
                             }}
                         />
                         <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-green-500/0 via-green-500/20 to-green-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-                        
+
                         <div className="relative z-10">
                             <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
                                 <div className="flex items-center gap-3 sm:gap-4">
@@ -262,9 +264,9 @@ const About = () => {
                                 Problem Solver
                             </h3>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                                Transforming complex challenges into <span className="font-semibold text-green-400">elegant solutions</span>. 
-                                Strong foundation in <span className="font-semibold text-blue-400">C++ and Python</span>, with expertise in 
-                                <span className="font-semibold text-yellow-400"> Data Structures, Algorithms, and OOP</span>. 
+                                Transforming complex challenges into <span className="font-semibold text-green-400">elegant solutions</span>.
+                                Strong foundation in <span className="font-semibold text-blue-400">C++ and Python</span>, with expertise in
+                                <span className="font-semibold text-yellow-400"> Data Structures, Algorithms, and OOP</span>.
                                 I excel at breaking down intricate problems, analyzing system architectures, and implementing optimized solutions.
                             </p>
                             <div className="flex flex-wrap gap-3">
@@ -307,7 +309,7 @@ const About = () => {
                             }}
                         />
                         <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-yellow-500/0 via-yellow-500/20 to-yellow-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-                        
+
                         <div className="relative z-10">
                             <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
                                 <div className="flex items-center gap-3 sm:gap-4">
@@ -336,9 +338,9 @@ const About = () => {
                                 Innovation & Growth
                             </h3>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                                A <span className="font-semibold text-yellow-400">lifelong learner</span> with expertise in <span className="font-semibold text-purple-400">Machine Learning and Data Analytics</span>. 
-                                Team Leader in multiple hackathons (IDE Bootcamp 2025, Codethon, SiH Hackathon 2025). 
-                                I thrive in collaborative environments, bringing <span className="font-semibold text-green-400">creative solutions</span> to the table 
+                                A <span className="font-semibold text-yellow-400">lifelong learner</span> with expertise in <span className="font-semibold text-purple-400">Machine Learning and Data Analytics</span>.
+                                Team Leader in multiple hackathons (IDE Bootcamp 2025, Codethon, SiH Hackathon 2025).
+                                I thrive in collaborative environments, bringing <span className="font-semibold text-green-400">creative solutions</span> to the table
                                 while continuously expanding my skill set with cloud technologies and AI.
                             </p>
                             <div className="flex flex-wrap gap-3">
@@ -381,7 +383,7 @@ const About = () => {
                             }}
                         />
                         <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-500/0 via-purple-500/20 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
-                        
+
                         <div className="relative z-10">
                             <div className="flex justify-between items-center border-b pb-4 sm:pb-5 border-gray-700/50 mb-4 sm:mb-6">
                                 <div className="flex items-center gap-3 sm:gap-4">
@@ -410,9 +412,9 @@ const About = () => {
                                 Impact & Achievements
                             </h3>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
-                                Building products that make a difference. From <span className="font-semibold text-purple-400">disaster alert systems (GeoAlert)</span> 
-                                to <span className="font-semibold text-blue-400">logistics management platforms (TruckByte)</span>, I create solutions that scale. 
-                                Hackathon finalist and team leader, with projects leveraging <span className="font-semibold text-green-400">real-time technologies</span> 
+                                Building products that make a difference. From <span className="font-semibold text-purple-400">disaster alert systems (GeoAlert)</span>
+                                to <span className="font-semibold text-blue-400">logistics management platforms (TruckByte)</span>, I create solutions that scale.
+                                Hackathon finalist and team leader, with projects leveraging <span className="font-semibold text-green-400">real-time technologies</span>
                                 like WebSockets and geofencing.
                             </p>
                             <div className="flex flex-wrap gap-3">
@@ -448,7 +450,7 @@ const About = () => {
                             Ready to Build Something Amazing?
                         </h3>
                         <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                            Let's collaborate to turn your vision into reality. I'm always excited to work on innovative projects 
+                            Let's collaborate to turn your vision into reality. I'm always excited to work on innovative projects
                             that push boundaries and create meaningful impact.
                         </p>
                         <motion.a

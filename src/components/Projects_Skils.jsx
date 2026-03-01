@@ -27,16 +27,15 @@ const Projects = () => {
         {
             id: 3,
             name: "Qyuro.Sity",
-            logo: "/Qyuro.Sity.png",
+            logo: "/Qyuro_sity.webp",
             description: "Qyuro is an all-in-one AI assistant built to handle everything in one place, from everyday questions to creative and productivity tasks. Simple, fast, and designed to adapt to how you think and work.",
-            link: "#",
-            category: "AI Assistant",
-            comingSoon: true
+            link: "https://play.google.com/store/apps/details?id=ai.web3task.qyuro&hl=en_IN",
+            category: "AI Assistant"
         }
     ];
 
-    // Landing Pages Section
-    const landingPages = [
+    // Web Apps Section
+    const webApps = [
         {
             id: 1,
             name: "TalesFM",
@@ -64,6 +63,34 @@ const Projects = () => {
             image: "/web3tasklanding.png",
             description: "Innovate for the future. We help startups scale with strong SaaS, conversion-ready dashboards, and integrated tech, AI, design, and automation solutions.",
             link: "https://web3task.com/"
+        },
+        {
+            id: 5,
+            name: "Socibuy",
+            image: "/socibuywebsite.png",
+            description: "A powerful e-commerce solution for social media. Seamlessly integrate your shop with social platforms to reach more customers and boost sales.",
+            link: "https://socibuy.com/"
+        },
+        {
+            id: 6,
+            name: "YouTube Adwords",
+            image: "/youtubeadwords.png",
+            description: "Dominate YouTube with expert ad campaigns. Tailored video marketing strategies to grow your channel and maximize ROI through targeted advertising.",
+            link: "https://youtubeadwords.com/"
+        },
+        {
+            id: 7,
+            name: "Growzii",
+            image: "/growzii.png",
+            description: "Scale your business with intelligent growth tools. All-in-one platform for marketing automation, lead generation, and customer engagement.",
+            link: "https://growzii.com/"
+        },
+        {
+            id: 8,
+            name: "Getviralux",
+            image: "/getviralux.png",
+            description: "Unlock the secret to viral growth. High-impact marketing services designed to make your brand go viral and build a massive online presence.",
+            link: "https://getviralux.com/"
         }
     ];
 
@@ -93,7 +120,7 @@ const Projects = () => {
 
     // Carousel scroll functions
     const scrollLeft = () => {
-        const container = document.getElementById('landing-pages-carousel');
+        const container = document.getElementById('web-apps-carousel');
         if (container) {
             const cardWidth = container.querySelector('.flex-shrink-0')?.offsetWidth || 600;
             container.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
@@ -101,7 +128,7 @@ const Projects = () => {
     };
 
     const scrollRight = () => {
-        const container = document.getElementById('landing-pages-carousel');
+        const container = document.getElementById('web-apps-carousel');
         if (container) {
             const cardWidth = container.querySelector('.flex-shrink-0')?.offsetWidth || 600;
             container.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
@@ -177,11 +204,10 @@ const Projects = () => {
                     <div className="flex bg-gray-800/50 backdrop-blur-xl p-1 sm:p-1.5 rounded-full border border-gray-700/50 shadow-2xl">
                         <motion.button
                             onClick={() => setActiveTab("apps")}
-                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${
-                                activeTab === "apps"
-                                    ? "text-white"
-                                    : "text-gray-400 hover:text-white"
-                            }`}
+                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${activeTab === "apps"
+                                ? "text-white"
+                                : "text-gray-400 hover:text-white"
+                                }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -195,30 +221,29 @@ const Projects = () => {
                             <span className="relative z-10">Apps</span>
                         </motion.button>
                         <motion.button
-                            onClick={() => setActiveTab("landing")}
-                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${
-                                activeTab === "landing"
-                                    ? "text-white"
-                                    : "text-gray-400 hover:text-white"
-                            }`}
+                            onClick={() => setActiveTab("webapps")}
+                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${activeTab === "webapps"
+                                ? "text-white"
+                                : "text-gray-400 hover:text-white"
+                                }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {activeTab === "landing" && (
+                            {activeTab === "webapps" && (
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
                                     layoutId="activeTab"
                                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                                 />
                             )}
-                            <span className="relative z-10">Landing Pages</span>
+                            <span className="relative z-10">Web Apps</span>
                         </motion.button>
                     </div>
                 </motion.div>
 
                 {/* Apps Section */}
                 <AnimatePresence mode="wait">
-                    {activeTab === "apps" && (
+                    {activeTab === "apps" ? (
                         <motion.div
                             key="apps"
                             initial={{ opacity: 0, y: 20 }}
@@ -238,7 +263,7 @@ const Projects = () => {
                                     <div className="h-full bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-700/50 shadow-2xl transition-all duration-500 hover:shadow-blue-500/30 hover:border-blue-500/50 relative">
                                         {/* Glow effect on hover */}
                                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
-                                        
+
                                         {/* Logo Section */}
                                         <div className="relative p-6 sm:p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/50">
                                             <div className="flex items-center justify-center h-24 sm:h-32">
@@ -301,12 +326,9 @@ const Projects = () => {
                                 </motion.div>
                             ))}
                         </motion.div>
-                    )}
-
-                    {/* Landing Pages Section - Horizontal Carousel */}
-                    {activeTab === "landing" && (
+                    ) : (
                         <motion.div
-                            key="landing"
+                            key="webapps"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
@@ -331,7 +353,7 @@ const Projects = () => {
 
                             {/* Carousel Container */}
                             <div
-                                id="landing-pages-carousel"
+                                id="web-apps-carousel"
                                 className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 px-2 sm:px-4 md:px-6 snap-x snap-mandatory"
                                 style={{
                                     scrollbarWidth: 'none',
@@ -339,19 +361,19 @@ const Projects = () => {
                                     WebkitOverflowScrolling: 'touch',
                                 }}
                             >
-                                {landingPages.map((page, index) => (
+                                {webApps.map((page) => (
                                     <motion.div
                                         key={page.id}
                                         initial={{ opacity: 0, x: 50 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
                                         className="flex-shrink-0 w-[calc(100vw-2rem)] sm:w-[calc(100vw-4rem)] md:w-[600px] lg:w-[700px] group snap-center"
                                         whileHover={{ y: -10 }}
                                     >
                                         <div className="h-full bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-700/50 shadow-2xl transition-all duration-500 hover:shadow-blue-500/30 hover:border-blue-500/50 relative">
                                             {/* Glow effect on hover */}
                                             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
-                                            
+
                                             {/* Landing Page Image */}
                                             <div className="relative overflow-hidden">
                                                 <motion.img
@@ -383,7 +405,7 @@ const Projects = () => {
                                                             whileTap={{ scale: 0.95 }}
                                                         >
                                                             <FaExternalLinkAlt className="text-xs sm:text-sm" />
-                                                            <span className="font-medium">View Landing Page</span>
+                                                            <span className="font-medium">View Web App</span>
                                                         </motion.a>
                                                     ) : (
                                                         <div className="px-3 sm:px-4 py-1.5 sm:py-2 text-gray-500 text-xs sm:text-sm">
@@ -408,7 +430,7 @@ const Projects = () => {
 
                             {/* Custom Scrollbar Styling */}
                             <style>{`
-                                #landing-pages-carousel::-webkit-scrollbar {
+                                #web-apps-carousel::-webkit-scrollbar {
                                     display: none;
                                 }
                             `}</style>

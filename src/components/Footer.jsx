@@ -4,8 +4,9 @@ import { Link } from 'react-scroll';
 
 const Footer = () => {
     const socialLinks = [
-        { name: "GitHub", icon: FaGithub, url: "https://github.com/preetcoder12", color: "hover:text-gray-300" },
-        { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/preet-gusain-986b022a5/", color: "hover:text-blue-400" },
+        { name: "Personal Hub", icon: FaGithub, url: "https://github.com/preetcoder12", color: "hover:text-blue-400" },
+        { name: "Github Org", icon: FaGithub, url: "https://github.com/preetgusain", color: "hover:text-fuchsia-400" },
+        { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/preet-gusain-986b022a5/", color: "hover:text-blue-600" },
         { name: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/preet_gusain200_?utm_source=qr&igsh=MXhmenR4ZXgwc2xvbA==", color: "hover:text-pink-500" },
         { name: "YouTube", icon: FaYoutube, url: "https://www.youtube.com/@preetgusain", color: "hover:text-red-500" },
     ];
@@ -14,7 +15,7 @@ const Footer = () => {
         <footer className="relative text-white py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-black via-gray-900 to-black border-t border-gray-800/50">
             {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 to-transparent"></div>
-            
+
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
                     {/* Logo and Copyright */}
@@ -116,4 +117,3 @@ const Footer = () => {
 };
 
 export default Footer;
-  

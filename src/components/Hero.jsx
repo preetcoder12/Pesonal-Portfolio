@@ -290,7 +290,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              <Counter target={20} />
+              <Counter target={30} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Projects</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -303,7 +303,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              <Counter target={140} />
+              <Counter target={240} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">DSA Problems</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -316,7 +316,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-400 to-red-500 bg-clip-text text-transparent">
-              <Counter target={253} />
+              <Counter target={1000} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Commits</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-pink-400 to-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -329,7 +329,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
-              <Counter target={20} />
+              <Counter target={25} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Tech Stacks</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
