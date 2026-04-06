@@ -34,8 +34,8 @@ const Projects = () => {
         }
     ];
 
-    // Web Apps Section
-    const webApps = [
+    // Websites Section
+    const websitess = [
         {
             id: 1,
             name: "TalesFM",
@@ -91,6 +91,13 @@ const Projects = () => {
             image: "/getviralux.png",
             description: "Unlock the secret to viral growth. High-impact marketing services designed to make your brand go viral and build a massive online presence.",
             link: "https://getviralux.com/"
+        },
+        {
+            id: 9,
+            name: "GetMyLikes",
+            image: "/getmylikes.png",
+            description: "The world's most trusted SMM panel. Scale your social media presence with high-retention followers, likes, and views using our fast and risk-free platform.",
+            link: "https://getmylikes.com/"
         }
     ];
 
@@ -221,22 +228,22 @@ const Projects = () => {
                             <span className="relative z-10">Apps</span>
                         </motion.button>
                         <motion.button
-                            onClick={() => setActiveTab("webapps")}
-                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${activeTab === "webapps"
+                            onClick={() => setActiveTab("websitess")}
+                            className={`relative flex items-center gap-1 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full transition-all text-xs sm:text-sm md:text-base font-semibold ${activeTab === "websitess"
                                 ? "text-white"
                                 : "text-gray-400 hover:text-white"
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {activeTab === "webapps" && (
+                            {activeTab === "websitess" && (
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
                                     layoutId="activeTab"
                                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                                 />
                             )}
-                            <span className="relative z-10">Web Apps</span>
+                            <span className="relative z-10">Websites</span>
                         </motion.button>
                     </div>
                 </motion.div>
@@ -328,7 +335,7 @@ const Projects = () => {
                         </motion.div>
                     ) : (
                         <motion.div
-                            key="webapps"
+                            key="websitess"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
@@ -361,7 +368,7 @@ const Projects = () => {
                                     WebkitOverflowScrolling: 'touch',
                                 }}
                             >
-                                {webApps.map((page) => (
+                                {websitess.map((page) => (
                                     <motion.div
                                         key={page.id}
                                         initial={{ opacity: 0, x: 50 }}
@@ -405,7 +412,7 @@ const Projects = () => {
                                                             whileTap={{ scale: 0.95 }}
                                                         >
                                                             <FaExternalLinkAlt className="text-xs sm:text-sm" />
-                                                            <span className="font-medium">View Web App</span>
+                                                            <span className="font-medium">Visit</span>
                                                         </motion.a>
                                                     ) : (
                                                         <div className="px-3 sm:px-4 py-1.5 sm:py-2 text-gray-500 text-xs sm:text-sm">
