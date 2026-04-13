@@ -290,7 +290,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              <Counter target={30} />
+              <Counter target={32} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Projects</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -316,7 +316,7 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
           >
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-400 to-red-500 bg-clip-text text-transparent">
-              <Counter target={1000} />
+              <Counter target={1200} />
             </div>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Commits</p>
             <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-pink-400 to-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
