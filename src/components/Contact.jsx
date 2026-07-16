@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { Send, Mail, User, MessageSquare, CheckCircle, XCircle, Loader2, Linkedin, Github } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+import GlitchText from './GlitchText';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -70,7 +71,9 @@ const Contact = () => {
                         Contact Me
                     </motion.span>
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight tracking-tight">
-                        Got a vision? Let's <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-500 to-fuchsia-500">spark</span> it.
+                        <GlitchText speed={0.6} enableShadows={true} enableOnHover={true} className="text-white font-black">
+                            Got a vision? Let's spark it.
+                        </GlitchText>
                     </h2>
                     <p className="max-w-2xl mx-auto text-gray-400 text-base md:text-lg leading-relaxed px-4">
                         Whether it's a bold new startup or a complex enterprise app, I'm ready to bring your ideas to life with precision and style.

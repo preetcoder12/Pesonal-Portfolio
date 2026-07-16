@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import GlitchText from './GlitchText';
 
 const Skills = () => {
     const languages = [
@@ -97,8 +98,9 @@ const Skills = () => {
                         <span className="text-blue-400 text-xs sm:text-sm font-medium">Technologies</span>
                     </motion.div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 sm:mb-6 orbitron tracking-tight">
-                        <span className="text-white">Skills </span>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Set</span>
+                        <GlitchText speed={0.6} enableShadows={true} enableOnHover={true} className="text-white orbitron font-extrabold">
+                            Skills Set
+                        </GlitchText>
                     </h2>
                     <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
                         <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent to-blue-500"></div>

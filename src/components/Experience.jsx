@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight, Award, Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import GlitchText from './GlitchText';
 
 const Experience = () => {
     const [activeTab, setActiveTab] = useState("experience");
@@ -159,8 +160,9 @@ const Experience = () => {
                         <span className="text-blue-400 text-xs sm:text-sm font-medium">Career Path</span>
                     </motion.div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white orbitron">
-                        <span className="text-white">Professional </span>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Journey</span>
+                        <GlitchText speed={0.6} enableShadows={true} enableOnHover={true} className="text-white orbitron font-extrabold">
+                            Professional Journey
+                        </GlitchText>
                     </h2>
                     <div className="flex items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-6">
                         <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-transparent to-blue-500"></div>

@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   margin-top: -30px;
-  /* Shift up by 30px on mobile */
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -15,13 +15,14 @@
     position: absolute;
     left: 0;
     top: -150px;
-    /* Shift up by 30px on desktop absolute overlay */
     margin-top: 0;
     width: 65vw;
     height: 100vh;
+    overflow: visible;
   }
 }
 
 .lanyard-wrapper canvas {
   pointer-events: auto;
+  overflow: visible;
 }

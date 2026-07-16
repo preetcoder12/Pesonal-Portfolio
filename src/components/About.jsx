@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import GlitchText from './GlitchText';
 
 const ScrollRevealWord = ({ word, index, total, progress }) => {
   const start = index / total;
@@ -67,7 +68,9 @@ const About = () => {
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center gap-12 text-center relative z-10">
         {/* Title */}
         <h2 className="font-akira lg:text-8xl md:text-5xl text-2xl tracking-wider uppercase text-[#08060d]">
-          About Me
+          <GlitchText speed={0.6} enableShadows={true} enableOnHover={true} className="font-akira lg:text-8xl md:text-5xl text-2xl tracking-wider uppercase text-[#08060d]">
+            About Me
+          </GlitchText>
         </h2>
 
         {/* Scroll-reveal Description */}

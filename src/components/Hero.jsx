@@ -45,7 +45,7 @@ const Hero = ({ loading }) => {
     <section
       ref={heroRef}
       id="heroSection"
-      className="relative w-full bg-black overflow-hidden flex items-center justify-center min-h-screen py-16 lg:py-0"
+      className="relative w-full bg-black flex items-center justify-center min-h-screen py-16 lg:py-0"
       style={{
         minHeight: "calc(100svh - var(--hero-progress) * 34svh)",
       }}
@@ -65,7 +65,7 @@ const Hero = ({ loading }) => {
 
       <div className="z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-16 max-w-7xl w-full px-6 relative">
         {/* Left column: 3D Lanyard Card */}
-        <div className={`w-full lg:w-[35%] h-[450px] lg:h-[600px] flex items-center justify-center transition-all duration-1000 lg:-translate-x-16 relative z-30 ${
+        <div className={`w-full lg:w-[35%] h-[550px] lg:h-[750px] flex items-center justify-center transition-all duration-1000 lg:-translate-x-16 relative z-30 overflow-visible ${
           loading ? "opacity-0 scale-95" : "opacity-100 scale-100 delay-[1.5s]"
         }`}>
           {!loading && (

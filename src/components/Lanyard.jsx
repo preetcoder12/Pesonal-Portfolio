@@ -74,7 +74,7 @@ export default function Lanyard({
   }, [isMobile, dimensions.height]);
 
   return (
-    <div className="lanyard-wrapper w-full h-full">
+    <div className="lanyard-wrapper w-full h-full overflow-visible">
       <Canvas
         camera={{ position: [0, 0, cameraZ], fov: sceneFov }}
         dpr={[1, isMobile ? 1.5 : 2]}
