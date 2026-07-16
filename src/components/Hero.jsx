@@ -1,347 +1,149 @@
-import { useState, useEffect } from "react";
-import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
-import { FaLinkedin, FaInstagram, FaGithub, FaYoutube, FaDownload } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import Particles from "./Particles";
+import Lanyard from "./Lanyard";
 
-const Counter = ({ target }) => {
-  const [count, setCount] = useState(0);
+const Hero = ({ loading }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const heroRef = useRef(null);
 
   useEffect(() => {
-    let start = 0;
-    const duration = 2000; // Animation duration in ms
-    const frameDuration = 1000 / 60; // Duration of one frame at 60fps
-    const totalFrames = Math.round(duration / frameDuration);
-    const increment = target / totalFrames;
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 8);
 
-    let frame = 0;
-    const timer = setInterval(() => {
-      frame++;
-      const progress = frame / totalFrames;
-      // Use easeOutQuad easing function for smoother animation
-      const easeProgress = 1 - Math.pow(1 - progress, 2);
-      const currentCount = Math.floor(easeProgress * target);
+      const heroElement = heroRef.current;
+      if (!heroElement) return;
 
-      setCount(currentCount);
+      const r = window.innerWidth <= 1024 ? 0.26 : 0.34;
+      const thresholdHeight = window.innerHeight * (1 - r);
+      const progress = Math.min(scrollY / thresholdHeight, 1);
 
-      if (frame === totalFrames) {
-        clearInterval(timer);
-        setCount(target);
-      }
-    }, frameDuration);
+      heroElement.style.setProperty("--hero-progress", progress.toString());
+    };
 
-    return () => clearInterval(timer);
-  }, [target]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
-  return <span className="counting">{count}</span>;
-};
+    // Initial calculation
+    handleScroll();
 
-const Hero = () => {
-  const socialLinks = [
-    { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/preet-gusain-986b022a5/", color: "hover:text-blue-500" },
-    { name: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/preet_gusain200_?utm_source=qr&igsh=MXhmenR4ZXgwc2xvbA==", color: "hover:text-pink-500" },
-    { name: "GitHub", icon: FaGithub, url: "https://github.com/preetcoder12", color: "hover:text-gray-300" },
-    { name: "YouTube", icon: FaYoutube, url: "https://www.youtube.com/@preetgusain", color: "hover:text-red-500" },
-  ];
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
+  const handleScrollClick = (e) => {
+    e.preventDefault();
+    const nextSection = document.getElementById("aboutSection");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
-    <div id="heroSection" className="w-full min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-black pt-20">
-      {/* Animated Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500 rounded-full filter blur-3xl opacity-20"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -40, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500 rounded-full filter blur-3xl opacity-15"
-          animate={{
-            scale: [1, 1.4, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+    <section
+      ref={heroRef}
+      id="heroSection"
+      className="relative w-full bg-black overflow-hidden flex items-center justify-center min-h-screen py-16 lg:py-0"
+      style={{
+        minHeight: "calc(100svh - var(--hero-progress) * 34svh)",
+      }}
+    >
+      <Particles
+        particleColors={["#ffffff", "#aaaaaa", "#555555"]}
+        particleCount={200}
+        particleSpread={10}
+        speed={0.15}
+        particleBaseSize={100}
+        moveParticlesOnHover={true}
+        particleHoverFactor={1.2}
+        alphaParticles={true}
+        disableRotation={false}
+        className="absolute inset-0 z-0"
+      />
+
+      <div className="z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-16 max-w-7xl w-full px-6 relative">
+        {/* Left column: 3D Lanyard Card */}
+        <div className={`w-full lg:w-[35%] h-[450px] lg:h-[600px] flex items-center justify-center transition-all duration-1000 lg:-translate-x-16 relative z-30 ${
+          loading ? "opacity-0 scale-95" : "opacity-100 scale-100 delay-[1.5s]"
+        }`}>
+          {!loading && (
+            <Lanyard
+              frontImage="/cardimage.jpeg"
+              backImage="/cardimage.jpeg"
+              position={[0, 0, 20]}
+              gravity={[0, -40, 0]}
+            />
+          )}
+        </div>
+
+        {/* Right column: Name Typography Wipes */}
+        <div className="w-full lg:w-[65%] flex flex-col items-center lg:items-start text-center lg:text-left gap-3 justify-center relative z-10">
+          <h1
+            className={`relative overflow-hidden inline-flex m-0 font-akira font-black text-[clamp(2.75rem,5.7vw,6.6rem)] whitespace-nowrap leading-[0.96] text-white tracking-[0.03em] uppercase ${
+              loading ? "" : "is-revealed"
+            }`}
+            aria-label="Preet Gusain"
+          >
+            <span
+              className={`relative z-10 inline-block text-transparent opacity-0 ${
+                !loading
+                  ? "animate-[hero-title-text-reveal_1.05s_step-end_1.58s_forwards]"
+                  : ""
+              }`}
+            >
+              Preet Gusain
+            </span>
+            <span
+              className={`absolute inset-0 z-20 origin-left scale-x-0 bg-[var(--accent-custom)] ${
+                !loading
+                  ? "animate-[hero-title-bar-reveal-accent_2.2s_cubic-bezier(0.22,1,0.36,1)_1.23s_forwards]"
+                  : ""
+              }`}
+              aria-hidden="true"
+            />
+            <span
+              className={`absolute inset-0 z-30 origin-left scale-x-0 bg-white ${
+                !loading
+                  ? "animate-[hero-title-bar-reveal_1.05s_cubic-bezier(0.22,1,0.36,1)_1.48s_forwards]"
+                  : ""
+              }`}
+              aria-hidden="true"
+            />
+          </h1>
+          <div className={`inline-block overflow-hidden mt-2 ${loading ? "" : "is-revealed"}`}>
+            <p
+              className={`inline-block translate-y-[0.62em] opacity-0 will-change-[transform,opacity] font-sans text-white text-[clamp(1.3rem,2.6vw,2.1rem)] tracking-[0.24em] uppercase lg:text-[clamp(1.2rem,2.5vw,1.8rem)] lg:tracking-[0.16em] ${
+                !loading
+                  ? "animate-[hero-subtitle-rise_0.58s_cubic-bezier(0.22,1,0.36,1)_3.5s_forwards]"
+                  : ""
+              }`}
+            >
+              Software Engineer
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Enhanced Grid patterns */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0aDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMCAzaDR2MWgtNHYtMXptMTYtMzF2MWgtNHYtMWg0em0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xem0wIDNoLTR2MWg0di0xeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-8 sm:pb-12">
-        <motion.div
-          className="flex flex-col lg:flex-row justify-between items-center gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16 lg:mb-24"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Left Section */}
-          <motion.div
-            className="flex flex-col justify-center text-center lg:text-left max-w-2xl w-full"
-            variants={containerVariants}
-          >
-            <motion.div
-              className="inline-block mb-4 px-2.5 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full w-fit mx-auto lg:mx-0"
-              variants={itemVariants}
-            >
-              <span className="text-blue-400 text-xs font-medium whitespace-nowrap">Welcome to my Portfolio</span>
-            </motion.div>
-
-
-            <motion.h2
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-300 mb-4 sm:mb-6 font-semibold"
-              variants={itemVariants}
-            >
-              I am{" "}
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 inline-block">
-                <Typewriter
-                  words={[
-                    "a Full Stack Developer",
-                    "a Problem Solver",
-                    "an AI & ML Enthusiast",
-                    "a Creative Coder",
-                  ]}
-                  loop={0}
-                  cursor
-                  cursorStyle="|"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1000}
-                />
-              </span>
-            </motion.h2>
-
-            <motion.p
-              className="text-gray-400 mb-6 sm:mb-8 lg:mb-10 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-2 sm:px-0"
-              variants={itemVariants}
-            >
-              Aspiring Full Stack Developer with strong skills in C++, Python, and JavaScript. Building scalable, creative solutions with hands-on experience in web development, machine learning, and cloud technologies. Currently pursuing B.Tech in CSIT with 7.5 CGPA.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-wrap gap-4 sm:gap-6 items-center justify-center lg:justify-start w-full"
-              variants={itemVariants}
-            >
-              <motion.a
-                href="/preet_cv.pdf"
-                download="Preet_Resume.pdf"
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm sm:text-base font-semibold rounded-xl shadow-2xl overflow-hidden w-full sm:w-auto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <FaDownload className="group-hover:animate-bounce" />
-                  Download CV
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
-
-              <div className="flex gap-3 sm:gap-4 justify-center w-full sm:w-auto">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`relative p-2.5 sm:p-3 text-xl sm:text-2xl text-gray-400 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 transition-all duration-300 ${social.color} hover:border-blue-500/50`}
-                    whileHover={{ scale: 1.15, y: -3 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={social.name}
-                  >
-                    <social.icon />
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Section */}
-          <motion.div
-            className="relative flex justify-center items-center w-full lg:w-auto mt-8 lg:mt-0"
-            variants={itemVariants}
-          >
-            {/* Animated gradient rings */}
-            <motion.div
-              className="absolute w-64 h-64 sm:w-80 sm:h-80 md:w-[28rem] md:h-[28rem] rounded-full border-2 border-dotted border-blue-500/20"
-              animate={{
-                rotate: -360,
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-
-            <motion.div
-              className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full border-2 border-dotted border-purple-500/20"
-              animate={{
-                rotate: 360,
-                scale: [1, 1.15, 1],
-              }}
-              transition={{
-                rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-
-            <motion.div
-              className="absolute w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-2 border-dotted border-pink-500/20"
-              animate={{
-                rotate: -360,
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-              }}
-            />
-
-            {/* Image container with enhanced effects */}
-            <motion.div
-              className="relative p-2 rounded-full bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-md border border-white/10"
-              whileHover={{ scale: 1.08, rotate: [0, -5, 5, -5, 0] }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <div className="relative rounded-full overflow-hidden">
-                <motion.img
-                  src="/profile.jpeg"
-                  alt="Preet Gusain"
-                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-gray-800/50 relative z-10"
-                  whileHover={{ scale: 1.05 }}
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-xl"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-
-        {/* Enhanced Animated Counters Section */}
-        <motion.div
-          className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-16 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 bg-gradient-to-br from-gray-800/40 via-gray-800/30 to-gray-900/40 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-gray-700/50 shadow-2xl mx-4 sm:mx-0"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-        >
-          <motion.div
-            className="text-center flex flex-col items-center gap-2 sm:gap-3 group w-1/2 sm:w-auto"
-            whileHover={{ scale: 1.1 }}
-          >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              <Counter target={32} />
-            </div>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Projects</p>
-            <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </motion.div>
-
-          <div className="hidden sm:block h-12 md:h-16 w-px bg-gradient-to-b from-transparent via-gray-500/50 to-transparent" />
-
-          <motion.div
-            className="text-center flex flex-col items-center gap-2 sm:gap-3 group w-1/2 sm:w-auto"
-            whileHover={{ scale: 1.1 }}
-          >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              <Counter target={240} />
-            </div>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">DSA Problems</p>
-            <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </motion.div>
-
-          <div className="hidden sm:block h-12 md:h-16 w-px bg-gradient-to-b from-transparent via-gray-500/50 to-transparent" />
-
-          <motion.div
-            className="text-center flex flex-col items-center gap-2 sm:gap-3 group w-1/2 sm:w-auto"
-            whileHover={{ scale: 1.1 }}
-          >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-400 to-red-500 bg-clip-text text-transparent">
-              <Counter target={1200} />
-            </div>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Commits</p>
-            <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-pink-400 to-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </motion.div>
-
-          <div className="hidden sm:block h-12 md:h-16 w-px bg-gradient-to-b from-transparent via-gray-500/50 to-transparent" />
-
-          <motion.div
-            className="text-center flex flex-col items-center gap-2 sm:gap-3 group w-1/2 sm:w-auto"
-            whileHover={{ scale: 1.1 }}
-          >
-            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
-              <Counter target={25} />
-            </div>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium">Tech Stacks</p>
-            <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </motion.div>
-        </motion.div>
-      </div>
-
-
-      {/* Add a custom animation for the wave emoji */}
-
-
-    </div>
+      <a
+        href="#aboutSection"
+        onClick={handleScrollClick}
+        className={`absolute bottom-[54px] lg:bottom-[42px] left-1/2 z-30 font-sans text-[0.84rem] lg:text-[0.76rem] font-extrabold text-white/90 tracking-[0.28em] [text-shadow:0_1px_10px_rgba(0,0,0,0.28)] uppercase grid justify-items-center gap-2.5 lg:gap-2 no-underline cursor-pointer transition-all duration-500 delay-[3500ms] ${
+          loading
+            ? "opacity-0 translate-y-3 pointer-events-none"
+            : scrolled
+            ? "opacity-0 translate-y-2 pointer-events-none"
+            : "opacity-100 -translate-x-1/2 translate-y-0"
+        }`}
+      >
+        <span>Scroll</span>
+        <span
+          className="mx-auto w-3.5 h-3.5 border-b-[2.5px] border-r-[2.5px] border-white rotate-45 [filter:drop-shadow(0_2px_8px_rgba(0,0,0,0.22))] animate-[hero-scroll-arrow-bob_1.6s_ease-in-out_4s_infinite]"
+          aria-hidden="true"
+        />
+      </a>
+    </section>
   );
 };
 

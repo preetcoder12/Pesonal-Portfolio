@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import LoadingScreen from "./components/LoadingScreen";
+import CustomCursor from "./components/CustomCursor";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -8,13 +11,25 @@ import Projects_Skils from "./components/Projects_Skils";
 import Skills from "./components/Skills";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="w-full overflow-x-hidden max-w-full">
+      <CustomCursor />
+      <LoadingScreen loading={loading} />
+
       {/* Navbar with Links for smooth scrolling */}
       <Navbar />
 
       {/* Hero Section */}
-      <Hero id="heroSection" />
+      <Hero id="heroSection" loading={loading} />
 
       {/* About Section */}
       <About id="aboutSection" />

@@ -15,10 +15,14 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/rapier": "^2.2.0",
     "@tailwindcss/vite": "^4.0.6",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.4.2",
     "lucide-react": "^0.475.0",
+    "meshline": "^3.3.1",
     "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -29,7 +33,8 @@
     "react-scroll": "^1.9.2",
     "react-simple-typewriter": "^5.0.1",
     "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

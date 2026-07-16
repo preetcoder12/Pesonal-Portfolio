@@ -1,0 +1,27 @@
+.lanyard-wrapper {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -30px;
+  /* Shift up by 30px on mobile */
+}
+
+@media (min-width: 1024px) {
+  .lanyard-wrapper {
+    position: absolute;
+    left: 0;
+    top: -150px;
+    /* Shift up by 30px on desktop absolute overlay */
+    margin-top: 0;
+    width: 65vw;
+    height: 100vh;
+  }
+}
+
+.lanyard-wrapper canvas {
+  pointer-events: auto;
+}
