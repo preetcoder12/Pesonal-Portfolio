@@ -63,9 +63,8 @@ export default function Lanyard({
 
   const groupX = useMemo(() => {
     if (isMobile) return 0;
-    if (dimensions.width < 1200) return -2.4; // Shorter X offset on smaller desktop widths
-    return -3.2;
-  }, [isMobile, dimensions.width]);
+    return -2.4; // Constant X offset for all desktop screens to prevent clipping at 100% zoom
+  }, [isMobile]);
 
   const groupY = useMemo(() => {
     if (isMobile) return 3.2;
