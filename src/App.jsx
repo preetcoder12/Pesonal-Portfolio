@@ -4,7 +4,6 @@ import CustomCursor from "./components/CustomCursor";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
-import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects_Skils from "./components/Projects_Skils";
@@ -21,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden max-w-full">
+    <div className="w-full max-w-full" style={{ overflowX: "clip" }}>
       <CustomCursor />
       <LoadingScreen loading={loading} />
 
@@ -45,9 +44,6 @@ function App() {
 
       {/* Contact Section */}
       <Contact id="contactSection" />
-
-      {/* Footer Section */}
-      <Footer />
     </div>
   );
 }

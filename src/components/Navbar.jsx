@@ -79,9 +79,9 @@ const Navbar = () => {
           aria-controls="site-nav-drawer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className={isOpen ? "is-on-light" : isHeroActive ? "is-on-dark" : "is-on-light"} />
-          <span className={isOpen ? "is-on-light" : isHeroActive ? "is-on-dark" : "is-on-light"} />
-          <span className={isOpen ? "is-on-light" : isHeroActive ? "is-on-dark" : "is-on-light"} />
+          <span className={isOpen ? "is-on-light" : "is-on-dark"} />
+          <span className={isOpen ? "is-on-light" : "is-on-dark"} />
+          <span className={isOpen ? "is-on-light" : "is-on-dark"} />
         </button>
       </header>
 
