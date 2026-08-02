@@ -63,9 +63,9 @@ const Hero = ({ loading }) => {
         className="absolute inset-0 z-0"
       />
 
-      <div className="z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-16 max-w-7xl w-full px-6 relative">
+      <div className="z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-6 lg:gap-16 max-w-7xl w-full px-6 relative">
         {/* Left column: 3D Lanyard Card */}
-        <div className={`w-full lg:w-[35%] h-[550px] lg:h-[750px] flex items-center justify-center transition-all duration-1000 lg:-translate-x-16 relative z-30 overflow-visible ${
+        <div className={`hidden lg:flex w-full lg:w-[35%] h-[380px] sm:h-[480px] md:h-[550px] lg:h-[750px] items-center justify-center transition-all duration-1000 lg:-translate-x-16 relative z-30 overflow-visible ${
           loading ? "opacity-0 scale-95" : "opacity-100 scale-100 delay-[1.5s]"
         }`}>
           {!loading && (
@@ -81,19 +81,21 @@ const Hero = ({ loading }) => {
         {/* Right column: Name Typography Wipes */}
         <div className="w-full lg:w-[65%] flex flex-col items-center lg:items-start text-center lg:text-left gap-3 justify-center relative z-10">
           <h1
-            className={`relative overflow-hidden inline-flex m-0 font-akira font-black text-[clamp(2.75rem,5.7vw,6.6rem)] whitespace-nowrap leading-[0.96] text-white tracking-[0.03em] uppercase ${
+            className={`relative overflow-hidden inline-flex flex-col lg:flex-row items-center lg:items-start m-0 font-akira font-black text-[clamp(3.2rem,12vw,4.5rem)] lg:text-[clamp(2.75rem,5.7vw,6.6rem)] leading-[0.96] text-white tracking-[0.03em] uppercase ${
               loading ? "" : "is-revealed"
             }`}
             aria-label="Preet Gusain"
           >
             <span
-              className={`relative z-10 inline-block text-transparent opacity-0 ${
+              className={`relative z-10 inline-flex flex-col lg:flex-row items-center lg:items-start text-transparent opacity-0 ${
                 !loading
                   ? "animate-[hero-title-text-reveal_1.05s_step-end_1.58s_forwards]"
                   : ""
               }`}
             >
-              Preet Gusain
+              <span className="block lg:inline">Preet</span>
+              <span className="hidden lg:inline">&nbsp;</span>
+              <span className="block lg:inline">Gusain</span>
             </span>
             <span
               className={`absolute inset-0 z-20 origin-left scale-x-0 bg-[var(--accent-custom)] ${
@@ -114,7 +116,7 @@ const Hero = ({ loading }) => {
           </h1>
           <div className={`inline-block overflow-hidden mt-2 ${loading ? "" : "is-revealed"}`}>
             <p
-              className={`inline-block translate-y-[0.62em] opacity-0 will-change-[transform,opacity] font-sans text-white text-[clamp(1.3rem,2.6vw,2.1rem)] tracking-[0.24em] uppercase lg:text-[clamp(1.2rem,2.5vw,1.8rem)] lg:tracking-[0.16em] ${
+              className={`inline-block translate-y-[0.62em] opacity-0 will-change-[transform,opacity] font-sans text-white text-[clamp(1.2rem,3.2vw,1.8rem)] lg:text-[clamp(1.2rem,2.5vw,1.8rem)] tracking-[0.2em] sm:tracking-[0.24em] lg:tracking-[0.16em] ${
                 !loading
                   ? "animate-[hero-subtitle-rise_0.58s_cubic-bezier(0.22,1,0.36,1)_3.5s_forwards]"
                   : ""
@@ -129,12 +131,12 @@ const Hero = ({ loading }) => {
       <a
         href="#aboutSection"
         onClick={handleScrollClick}
-        className={`absolute bottom-[54px] lg:bottom-[42px] left-1/2 z-30 font-sans text-[0.84rem] lg:text-[0.76rem] font-extrabold text-white/90 tracking-[0.28em] [text-shadow:0_1px_10px_rgba(0,0,0,0.28)] uppercase grid justify-items-center gap-2.5 lg:gap-2 no-underline cursor-pointer transition-all duration-500 delay-[3500ms] ${
+        className={`absolute bottom-[54px] lg:bottom-[42px] left-1/2 -translate-x-1/2 z-30 font-sans text-[0.84rem] lg:text-[0.76rem] font-extrabold text-white/90 tracking-[0.28em] [text-shadow:0_1px_10px_rgba(0,0,0,0.28)] uppercase grid justify-items-center gap-2.5 lg:gap-2 no-underline cursor-pointer transition duration-500 delay-[3500ms] ${
           loading
             ? "opacity-0 translate-y-3 pointer-events-none"
             : scrolled
             ? "opacity-0 translate-y-2 pointer-events-none"
-            : "opacity-100 -translate-x-1/2 translate-y-0"
+            : "opacity-100 translate-y-0"
         }`}
       >
         <span>Scroll</span>

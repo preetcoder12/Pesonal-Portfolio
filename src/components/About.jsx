@@ -16,7 +16,7 @@ const ScrollRevealWord = ({ word, index, total, progress }) => {
 
 const About = () => {
   const containerRef = useRef(null);
-  const text = "I, Preet Gusain, am a Full Stack Developer with strong skills in C++, Python, and JavaScript. I build scalable, creative web applications, machine learning systems, and cloud solutions. I have hands-on experience developing optimized backends and responsive frontends. Currently pursuing my B.Tech in CSIT with a 7.5 CGPA, I focus on writing clean, simple, and high-performance code.";
+  const text = "I'm Preet Gusain, a Full Stack & Mobile Developer who's shipped AI-powered apps to 250K+ users across iOS and Android. I work across the stack — React, Node.js, Swift, Kotlin — and have hands-on networking experience building VPN systems with WireGuard and OpenVPN, handling encryption, kill switches, and server infrastructure. I care about writing clean code and solving hard technical problems, not just shipping features.";
   const words = text.split(" ");
 
   const { scrollYProgress } = useScroll({
@@ -27,7 +27,7 @@ const About = () => {
   const tickerItems = [
     "C++", "PYTHON", "JAVASCRIPT", "REACT", "NODEJS", "NEXTJS", "MONGODB", "EXPRESS", "HTML", "CSS"
   ];
-  
+
   // Duplicate elements to ensure seamless loop
   const duplicatedItems = [...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems];
 
