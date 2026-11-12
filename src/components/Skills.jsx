@@ -3,47 +3,62 @@ import { motion } from 'framer-motion';
 const Skills = () => {
     const categorizedSkills = [
         {
+            label: "Networking & CCNA",
+            items: [
+                { name: "Routers & Switches", code: "RS", img: "/netwrokinglogo.png" },
+                { name: "CCNA Protocols", code: "CC", img: "/server.png" },
+                { name: "TCP/IP & DNS", code: "IP" },
+                { name: "Firewall & ASA FW", code: "FW" },
+                { name: "WebSockets & Sockets", code: "WS" },
+                { name: "GNS3 & Packet Tracer", code: "PT" }
+            ]
+        },
+        {
+            label: "VPN & Tunneling",
+            items: [
+                { name: "WireGuard", code: "WG", img: "/vpnlogo.png" },
+                { name: "OpenVPN", code: "OV" },
+                { name: "NetworkExtension (Packet Tunnel)", code: "NE" },
+                { name: "Split Tunneling & Kill Switch", code: "KS" },
+                { name: "Handshake & Key Exchange", code: "KX" }
+            ]
+        },
+        {
+            label: "Systems & Mobile",
+            items: [
+                { name: "Swift & SwiftUI (MVVM)", code: "SW", img: "https://cdn.worldvectorlogo.com/logos/apple-1.svg", iconClass: "is-inverted" },
+                { name: "Kotlin (Android)", code: "KT", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
+                { name: "Java & UIAutomator2", code: "JV" },
+                { name: "C++", code: "CP", img: "/cpp.png" }
+            ]
+        },
+        {
+            label: "Backend & Infra",
+            items: [
+                { name: "Node JS", code: "ND", img: "/nodejs.png" },
+                { name: "Express JS", code: "EX", img: "https://cdn.worldvectorlogo.com/logos/express-109.svg", iconClass: "is-inverted" },
+                { name: "REST APIs", code: "AP" },
+                { name: "MongoDB & PostgreSQL", code: "DB", img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
+                { name: "Docker", code: "DK", img: "https://cdn.worldvectorlogo.com/logos/docker.svg" },
+                { name: "VPS & CI/CD (GitHub Actions)", code: "CI", img: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg", iconClass: "is-inverted" }
+            ]
+        },
+        {
+            label: "Security",
+            items: [
+                { name: "Encrypted Storage (Keychain)", code: "ES" },
+                { name: "JWT & OAuth", code: "AU" },
+                { name: "RBAC", code: "RB" },
+                { name: "Secure Sessions & TLS", code: "SS" }
+            ]
+        },
+        {
             label: "Frontend",
             items: [
                 { name: "React JS", code: "RE", img: "/atom.png" },
                 { name: "Nextjs", code: "NX", img: "https://cdn.worldvectorlogo.com/logos/next-js.svg", iconClass: "is-inverted" },
                 { name: "JavaScript", code: "JS", img: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg" },
-                { name: "TailWind", code: "TW", img: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" },
-                { name: "CSS", code: "CS", img: "https://cdn.worldvectorlogo.com/logos/css-3.svg" }
-            ]
-        },
-        {
-            label: "Backend",
-            items: [
-                { name: "Python", code: "PY", img: "https://cdn.worldvectorlogo.com/logos/python-5.svg" },
-                { name: "Node JS", code: "ND", img: "/nodejs.png" },
-                { name: "Express JS", code: "EX", img: "https://cdn.worldvectorlogo.com/logos/express-109.svg", iconClass: "is-inverted" },
-                { name: "MongoDB", code: "DB", img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" }
-            ]
-        },
-        {
-            label: "Mobile",
-            items: [
-                { name: "iOS", code: "IO", img: "https://cdn.worldvectorlogo.com/logos/apple-1.svg", iconClass: "is-inverted" },
-                { name: "Android", code: "AD", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" }
-            ]
-        },
-        {
-            label: "Systems & AI",
-            items: [
-                { name: "C++", code: "CP", img: "/cpp.png" },
-                { name: "ML", code: "ML", img: "/mllogo.jpg" }
-            ]
-        },
-        {
-            label: "Platforms",
-            items: [
-                { name: "Docker", code: "DK", img: "https://cdn.worldvectorlogo.com/logos/docker.svg" },
-                { name: "Linux", code: "LX", img: "https://cdn.worldvectorlogo.com/logos/linux-tux.svg", iconClass: "is-inverted" },
-                { name: "Ubuntu", code: "UB", img: "https://cdn.worldvectorlogo.com/logos/ubuntu-4.svg" },
-                { name: "Terminal", code: "TM", img: "/terminal_logo.svg", iconClass: "is-inverted" },
-                { name: "GitHub", code: "GH", img: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg", iconClass: "is-inverted" },
-                { name: "Networking", code: "NW", img: "/netwrokinglogo.png" }
+                { name: "TailWind", code: "TW", img: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" }
             ]
         }
     ];

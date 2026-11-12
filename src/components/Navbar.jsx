@@ -128,7 +128,7 @@ const Navbar = () => {
             <p className="site-nav-section-title">Socials</p>
             <div className="site-nav-socials">
               <a
-                href="https://www.linkedin.com/in/preet-gusain-986b022a5/"
+                href="https://www.linkedin.com/in/preet-gusain"
                 target="_blank"
                 rel="noreferrer"
                 className="contact-side-button"

@@ -169,7 +169,7 @@ const Contact = () => {
                     <div className="col-span-1 lg:col-span-1 lg:justify-self-end mt-6 lg:mt-0">
                         <div className="flex flex-row lg:flex-col gap-4 justify-center items-center">
                             {[
-                                { icon: Linkedin, link: 'https://www.linkedin.com/in/preet-gusain-986b022a5/' },
+                                { icon: Linkedin, link: 'https://www.linkedin.com/in/preet-gusain' },
                                 { icon: Github, link: 'https://github.com/preetcoder12' },
                                 { icon: Mail, link: 'mailto:preetgusain84@gmail.com' }
                             ].map((item, idx) => {

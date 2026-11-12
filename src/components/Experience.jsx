@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Award, Briefcase, ZoomIn, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Award, Briefcase, ZoomIn, X, Trophy } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import GlitchText from './GlitchText';
 
@@ -20,30 +20,102 @@ const Experience = () => {
 
     const experiences = [
         {
-            title: "Web Developer (Intern) - Web3task",
-            images: "web3task_logo.jpeg",
-            date: "Jun 2025 - Dec 2025 · 7 mos",
-            location: "Noida sector- 152 · On-site",
-            description: "Developing cutting-edge web applications and SaaS platforms using modern technologies. Working on full-stack solutions including React, Next.js, Node.js, and cloud services. Contributing to innovative projects that help startups scale with strong SaaS, conversion-ready dashboards, and integrated tech solutions.",
-            learned: "Full-stack Development, React/Next.js, SaaS Platform Development, API Integration, Cloud Services, and Agile Development.",
-            documentLink: "/offerletter_web3task.jpg?v=4",
-            documentLabel: "View Offer Letter"
+            title: "Network Engineer Trainee - GlobalXperts",
+            images: "/gx_logo.jpg",
+            date: "Aug 2026 - Present · 3 mos",
+            location: "Learning & Training",
+            description: "Completed structured CCNA training covering routing, switching, IP services, network security, and core networking protocols. Practiced hands-on labs configuring, monitoring, and troubleshooting switches, routers, firewalls, and other networking devices across multiple real-world case scenarios. Participated in Voice & Accent (V&A) sessions; gained knowledge of Cisco Meraki for cloud-managed network administration, LogicMonitor for network monitoring, and ServiceNow for incident and ticket management.",
+            bullets: [
+                "Completed structured CCNA training covering routing, switching, IP services, network security, and core networking protocols.",
+                "Practiced hands-on labs configuring, monitoring, and troubleshooting switches, routers, firewalls, and other networking devices, working through multiple real-world case-scenario labs to diagnose and resolve connectivity, configuration, and performance issues.",
+                "Participated in Voice & Accent (V&A) sessions; gained knowledge of Cisco Meraki for cloud-managed network administration, LogicMonitor for network monitoring, and ServiceNow for incident and ticket management."
+            ],
+            learned: "CCNA, Routing & Switching, Network Security, Cisco Meraki, LogicMonitor, ServiceNow, Firewalls & Routers, GNS3, Cisco Packet Tracer, Troubleshooting",
+            documents: []
         },
         {
-            title: "Web Developer (Full-time) - Web3task",
+            title: "Full Stack Developer - Web3Task",
             images: "web3task_logo.jpeg",
-            date: "Jan 2026 - Jul 2026 · 7 mos",
-            location: "Noida sector- 152 · On-site",
-            description: "Led team leadership initiatives directing front-end and back-end development teams. Developed and launched native iOS application and Android application platforms. Engineered robust automation scripts, worked on networking protocols, and managed VPS handling for secure deployments. Performed reverse engineering on legacy codebases and conducted model finetuning to integrate advanced AI capabilities.",
-            learned: "Team Leadership, iOS/Android Development, Automation, VPS Management, Networking, Reverse Engineering, Model Fine-tuning, Full-stack Development.",
-            documentLink: "/certificate_web3task.jpg?v=4",
-            documentLabel: "View Internship Certificate"
+            date: "Jun 2025 - Aug 2026 · 1 yr 2 mos",
+            location: "Noida · On-site",
+            description: "Architected TraverseVPN (iOS) via SwiftUI + MVVM: dual-protocol WireGuard + OpenVPN tunneling on a NetworkExtension Packet Tunnel Provider, with network-layer kill switch, split tunneling, and Keychain-encrypted credential storage — 10K+ App Store downloads. Built real-time systems with WebSockets/Socket.io for live location tracking (GeoAlert) and re-architected auth (Google OAuth, JWT, RBAC) for a platform serving 6.8M+ orders (GetMyLikes). Shipped and scaled two additional production apps — VoiceToNotes (250K+ downloads, on-device STT) and Qyuro.sity (LLM-powered chat) — and managed VPS infrastructure and CI/CD for 4+ web apps.",
+            bullets: [
+                "Architected TraverseVPN (iOS) via SwiftUI + MVVM: dual-protocol WireGuard + OpenVPN tunneling on a NetworkExtension Packet Tunnel Provider, with network-layer kill switch, split tunneling, and Keychain-encrypted credential storage — 10K+ App Store downloads.",
+                "Built real-time systems with WebSockets/Socket.io for live location tracking (GeoAlert) and re-architected auth (Google OAuth, JWT, RBAC) for a platform serving 6.8M+ orders (GetMyLikes).",
+                "Shipped and scaled two additional production apps — VoiceToNotes (250K+ downloads, on-device STT) and Qyuro.sity (LLM-powered chat) — and managed VPS infrastructure and CI/CD for 4+ web apps."
+            ],
+            learned: "SwiftUI, MVVM, WireGuard, OpenVPN, NetworkExtension, WebSockets, Socket.io, OAuth, JWT, RBAC, VPS Management, CI/CD, React, Node.js",
+            documents: [
+                { link: "/certificate_web3task.jpg?v=4", label: "View Experience Certificate" },
+                { link: "/offerletter_web3task.jpg?v=4", label: "View Offer Letter" }
+            ]
+        }
+    ];
+
+    const achievements = [
+        {
+            title: "2nd Place — 24-Hour College Hackathon (GeoAlert)",
+            subtitle: "Evaluated by IIT Delhi faculty & alumni",
+            category: "Hackathon Winner",
+            description: "Built a real-time geofencing alert system on a persistent WebSocket layer for live location tracking, with Twilio SMS notifications on geofence events. Led team as architect in a 24-hr hackathon, winning 2nd place judged by IIT Delhi faculty and alumni.",
+            badge: "🏆 2nd Place Winner",
+            badgeColor: "bg-amber-100 text-amber-800 border-amber-300"
+        },
+        {
+            title: "Selected — IDE Bootcamp Phase II",
+            subtitle: "Innovation, Design & Entrepreneurship (IDE)",
+            category: "Leadership & Innovation",
+            description: "Selected for Phase II of the national Innovation, Design & Entrepreneurship (IDE) Bootcamp as team leader, spearheading product architecture and venture design.",
+            badge: "⭐ Team Leader",
+            badgeColor: "bg-blue-100 text-blue-800 border-blue-300"
+        },
+        {
+            title: "2× College Topper — Coding Ninjas Code360",
+            subtitle: "Dronacharya Group of Institutions",
+            category: "Competitive Programming",
+            description: "Ranked #1 college-wide twice on Coding Ninjas Code360 for competitive algorithmic problem solving, data structures, and consistent coding performance.",
+            badge: "🥇 2× College Topper",
+            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300"
+        },
+        {
+            title: "Solo Research: On-Device Infinite Mic Session Architecture",
+            subtitle: "Real-Time STT Pipeline (VoiceToNotes)",
+            category: "Published Research",
+            description: "Reverse-engineered Google's Live Transcription pipeline to architect an infinite mic session, bypassing the 3–5 min SpeechRecognizer timeout. Published solo research paper on this on-device architecture (used by fewer than 5 apps globally). Scaled production app to 250K+ downloads.",
+            badge: "📜 Solo Research Paper",
+            badgeColor: "bg-purple-100 text-purple-800 border-purple-300"
+        },
+        {
+            title: "Team Research: AI-Based Plant Disease Diagnosis System",
+            subtitle: "Deep Learning & Computer Vision",
+            category: "AI Research",
+            description: "Collaborated on designing and evaluating deep learning models for high-accuracy plant and leaf disease identification to assist agricultural diagnostics.",
+            badge: "🌱 AI Research",
+            badgeColor: "bg-teal-100 text-teal-800 border-teal-300"
         }
     ];
 
     const certifications = [
         {
             id: "1",
+            title: "Cisco Certified Network Associate (CCNA)",
+            image: "/ccna_badge.webp",
+            issued_by: "Cisco",
+            date: "Aug 2026",
+            logo: "/ccna_badge.webp",
+            desc: "Certified in core Cisco networking, routing, switching, IP services, network security, and infrastructure configuration with hands-on multi-vendor lab troubleshooting."
+        },
+        {
+            id: "2",
+            title: "Full Stack Web Developer Internship Certificate",
+            image: "certificate_web3task.jpg?v=4",
+            issued_by: "Web3task",
+            date: "Mar 2026",
+            logo: "web3task_logo.jpeg",
+            desc: "Recognized for outstanding completion of the Web3task program, demonstrating excellence in full-stack, native iOS/Android development, VPN networking protocols, and VPS infrastructure."
+        },
+        {
+            id: "3",
             title: "Certification of Completion - C",
             image: "C.jpeg",
             issued_by: "IIT Bombay",
@@ -52,40 +124,22 @@ const Experience = () => {
             desc: "Completed C programming certification covering loops, functions, pointers, arrays, and memory management with hands-on exercises from IIT Bombay."
         },
         {
-            id: "2",
+            id: "4",
+            title: "DSA with Oops in C++",
+            image: "DSA.jpeg",
+            issued_by: "Udemy",
+            date: "Oct 2024",
+            logo: "Udemy-Logo.png",
+            desc: "Mastered Data Structures, Algorithms, and Object-Oriented Programming in C++ with hands-on projects, recursion, graphs, dynamic programming, and quizzes."
+        },
+        {
+            id: "5",
             title: "Career Essentials in Data Analytics",
             image: "dataAnalytics.png",
             issued_by: "Microsoft & LinkedIn",
             date: "Feb 2025",
             logo: "microsoft.png",
             desc: "Developed expertise in data analysis, visualization, SQL, and Python, earning certification from Microsoft & LinkedIn Learning."
-        },
-        {
-            id: "3",
-            title: "DSA with Oops in C++",
-            image: "DSA.jpeg",
-            issued_by: "Udemy",
-            date: "Oct 2024",
-            logo: "Udemy-Logo.png",
-            desc: "Mastered Data Structures, Algorithms, and Object-Oriented Programming in C++ with hands-on projects and quizzes."
-        },
-        {
-            id: "4",
-            title: "Machine Learning",
-            image: "ML.jpeg",
-            issued_by: "Udemy",
-            date: "Nov 2024",
-            logo: "Udemy-Logo.png",
-            desc: "Learned Machine Learning, Data Preprocessing, Regression, Classification, Clustering, and Natural Language Processing with Python."
-        },
-        {
-            id: "5",
-            title: "SQL BootCamp",
-            image: "SQL.jpeg",
-            issued_by: "Udemy",
-            date: "Feb 2025",
-            logo: "Udemy-Logo.png",
-            desc: "Mastered SQL, Database Management, and Querying with MySQL, and SQLite from scratch."
         },
         {
             id: "6",
@@ -98,12 +152,21 @@ const Experience = () => {
         },
         {
             id: "7",
-            title: "Full Stack Web Developer Internship Certificate",
-            image: "certificate_web3task.jpg?v=4",
-            issued_by: "Web3task",
-            date: "Mar 2026",
-            logo: "web3task_logo.jpeg",
-            desc: "Recognized for outstanding completion of the Web3task internship program, demonstrating excellence in full-stack, mobile development, leadership, and automation systems."
+            title: "SQL BootCamp",
+            image: "SQL.jpeg",
+            issued_by: "Udemy",
+            date: "Feb 2025",
+            logo: "Udemy-Logo.png",
+            desc: "Mastered SQL, Database Management, and Querying with MySQL, PostgreSQL, and SQLite from scratch."
+        },
+        {
+            id: "8",
+            title: "Machine Learning",
+            image: "ML.jpeg",
+            issued_by: "Udemy",
+            date: "Nov 2024",
+            logo: "Udemy-Logo.png",
+            desc: "Learned Machine Learning, Data Preprocessing, Regression, Classification, Clustering, and Natural Language Processing with Python."
         }
     ];
 
@@ -173,10 +236,10 @@ const Experience = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex bg-gray-100/80 backdrop-blur-xl p-1 rounded-full border border-gray-200 shadow-lg">
+                    <div className="flex flex-wrap justify-center bg-gray-100/80 backdrop-blur-xl p-1 rounded-full border border-gray-200 shadow-lg">
                         <motion.button
                             onClick={() => setActiveTab("experience")}
-                            className={`relative flex items-center gap-2 px-8 py-3 rounded-full transition-all font-semibold text-sm ${
+                            className={`relative flex items-center gap-2 px-6 sm:px-8 py-3 rounded-full transition-all font-semibold text-xs sm:text-sm ${
                                 activeTab === "experience"
                                     ? "text-white"
                                     : "text-gray-600 hover:text-[#08060d]"
@@ -196,7 +259,7 @@ const Experience = () => {
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab("certifications")}
-                            className={`relative flex items-center gap-2 px-8 py-3 rounded-full transition-all font-semibold text-sm ${
+                            className={`relative flex items-center gap-2 px-6 sm:px-8 py-3 rounded-full transition-all font-semibold text-xs sm:text-sm ${
                                 activeTab === "certifications"
                                     ? "text-white"
                                     : "text-gray-600 hover:text-[#08060d]"
@@ -213,6 +276,26 @@ const Experience = () => {
                             )}
                             <Award size={16} className="relative z-10" />
                             <span className="relative z-10">Certifications</span>
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab("achievements")}
+                            className={`relative flex items-center gap-2 px-6 sm:px-8 py-3 rounded-full transition-all font-semibold text-xs sm:text-sm ${
+                                activeTab === "achievements"
+                                    ? "text-white"
+                                    : "text-gray-600 hover:text-[#08060d]"
+                            }`}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            {activeTab === "achievements" && (
+                                <motion.div
+                                    className="absolute inset-0 bg-[#08060d] rounded-full"
+                                    layoutId="activeTab"
+                                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                />
+                            )}
+                            <Trophy size={16} className="relative z-10" />
+                            <span className="relative z-10">Achievements</span>
                         </motion.button>
                     </div>
                 </motion.div>
@@ -240,8 +323,8 @@ const Experience = () => {
                                 const isLeft = index % 2 === 0;
                                 const formattedIndex = String(index + 1).padStart(2, "0");
                                 
-                                // Split description text into bullet points
-                                const bulletPoints = exp.description
+                                // Use explicit bullets or split description
+                                const bulletPoints = exp.bullets || exp.description
                                     .split(". ")
                                     .filter(sentence => sentence.trim().length > 0)
                                     .map(sentence => {
@@ -288,7 +371,21 @@ const Experience = () => {
                                                 ))}
                                             </ul>
 
-                                            {/* Document Link */}
+                                            {/* Document Links */}
+                                            {exp.documents && exp.documents.length > 0 && (
+                                                <div className="flex flex-wrap gap-2 mb-3 text-left">
+                                                    {exp.documents.map((doc, dIdx) => (
+                                                        <button
+                                                            key={dIdx}
+                                                            onClick={() => setZoomImage(doc.link)}
+                                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-200 text-[#08060d] text-xs font-bold rounded-lg shadow-sm hover:bg-gray-100 hover:scale-102 active:scale-98 transition-all cursor-pointer"
+                                                        >
+                                                            <ZoomIn size={13} />
+                                                            {doc.label}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
                                             {exp.documentLink && (
                                                 <div className="mb-3 text-left">
                                                     <button
@@ -445,6 +542,50 @@ const Experience = () => {
                                     />
                                 ))}
                             </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {/* Achievements & Research Tab Content */}
+                <AnimatePresence mode="wait">
+                    {activeTab === "achievements" && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                        >
+                            {achievements.map((item, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                    className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-7 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left group"
+                                >
+                                    <div>
+                                        <div className="flex items-center justify-between gap-3 mb-4">
+                                            <span className={`px-3 py-1 rounded-full text-xs font-bold border ${item.badgeColor}`}>
+                                                {item.badge}
+                                            </span>
+                                            <span className="text-xs font-bold text-gray-400 tracking-wider uppercase">
+                                                {item.category}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-lg sm:text-xl font-extrabold text-[#08060d] mb-1.5 leading-snug group-hover:text-blue-600 transition-colors">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-3">
+                                            {item.subtitle}
+                                        </p>
+                                        <p className="text-sm text-gray-600 leading-relaxed font-normal">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </motion.div>
                     )}
                 </AnimatePresence>

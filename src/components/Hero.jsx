@@ -122,7 +122,7 @@ const Hero = ({ loading }) => {
                   : ""
               }`}
             >
-              Software Engineer
+              Network & Software Engineer
             </p>
           </div>
         </div>

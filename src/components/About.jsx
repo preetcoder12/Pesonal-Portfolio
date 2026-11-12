@@ -16,7 +16,7 @@ const ScrollRevealWord = ({ word, index, total, progress }) => {
 
 const About = () => {
   const containerRef = useRef(null);
-  const text = "I'm Preet Gusain, a Full Stack & Mobile Developer who's shipped AI-powered apps to 250K+ users across iOS and Android. I work across the stack — React, Node.js, Swift, Kotlin — and have hands-on networking experience building VPN systems with WireGuard and OpenVPN, handling encryption, kill switches, and server infrastructure. I care about writing clean code and solving hard technical problems, not just shipping features.";
+  const text = "I'm Preet Gusain, a Network Engineer with CCNA training and practical experience in network configuration, monitoring, and security across switches, routers, and firewalls. I bring a strong foundation in secure connectivity, including production VPN development (WireGuard + OpenVPN, 10K+ App Store downloads), and have shipped AI-integrated applications serving 250K+ users — bringing a software engineering perspective to network automation and troubleshooting.";
   const words = text.split(" ");
 
   const { scrollYProgress } = useScroll({
@@ -25,17 +25,18 @@ const About = () => {
   });
 
   const tickerItems = [
-    "C++", "PYTHON", "JAVASCRIPT", "REACT", "NODEJS", "NEXTJS", "MONGODB", "EXPRESS", "HTML", "CSS"
+    "CCNA", "WIREGUARD", "OPENVPN", "NETWORK SECURITY", "ROUTERS & SWITCHES", "FIREWALLS", "SWIFTUI", "REACT", "NODEJS", "DOCKER", "WEBSOCKETS", "C++", "PYTHON", "MONGODB", "CI/CD"
   ];
 
   // Duplicate elements to ensure seamless loop
   const duplicatedItems = [...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems];
 
   const socialLinks = [
-    { name: "INSTAGRAM", url: "https://www.instagram.com/preet_gusain200_?utm_source=qr&igsh=MXhmenR4ZXgwc2xvbA==" },
-    { name: "LINKEDIN", url: "https://www.linkedin.com/in/preet-gusain-986b022a5/" },
+    { name: "LINKEDIN", url: "https://www.linkedin.com/in/preet-gusain" },
     { name: "GITHUB", url: "https://github.com/preetcoder12" },
+    { name: "LEETCODE", url: "https://leetcode.com/u/preet_gusain12" },
     { name: "YOUTUBE", url: "https://www.youtube.com/@preetgusain" },
+    { name: "INSTAGRAM", url: "https://www.instagram.com/preet_gusain200_?utm_source=qr&igsh=MXhmenR4ZXgwc2xvbA==" },
   ];
 
   const handleContactClick = (e) => {
@@ -108,8 +109,8 @@ const About = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
           <a
-            href="/preet_cv.pdf"
-            download="Preet_Resume.pdf"
+            href="/preet_resume.pdf"
+            download="Preet_Gusain_Resume.pdf"
             className="px-8 py-3.5 border-2 border-[#08060d] rounded-full text-[#08060d] font-bold hover:bg-[#08060d] hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase cursor-pointer"
           >
             Resume
